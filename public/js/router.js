@@ -22,6 +22,10 @@
           url: '/login',
           templateUrl: '../partials/_login.html'
         })
+        .state('update', {
+          url: '/update',
+          templateUrl: '../partials/_update.html'
+        })
         .state('home', {
           url: '/home',
           templateUrl: '../partials/_home.html',

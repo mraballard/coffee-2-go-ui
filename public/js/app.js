@@ -12,20 +12,20 @@
 // ======================================================== //
                // USER CONTROLLER //
 // ======================================================== //
-self.currentUserCheck = function(userId) {
-    if (localStorage.user_id == userId.toString()) {
-      self.isUser = true;
-    }
-    else {
-      self.isUser = false;
-    }
+  self.currentUserCheck = function(userId) {
+      if (localStorage.user_id == userId.toString()) {
+        self.isUser = true;
+      }
+      else {
+        self.isUser = false;
+      }
   }
 
   self.signup = function(userPass){
     $http.post(`${rootUrl}/users`, {user: {firstname: userPass.firstName, lastname: userPass.lastName, username: userPass.username, password: userPass.password }})
     .then(function(response) {
       console.log(response);
-      self.user = response.data.user
+      self.user = response.data.user;
       localStorage.setItem('user_id', JSON.stringify(response.data.user.id));
       localStorage.setItem('token', JSON.stringify(response.data.token));
 
@@ -40,7 +40,8 @@ self.currentUserCheck = function(userId) {
   self.login = function(userPass){
     $http.post(`${rootUrl}/users/login`, {user: {username: userPass.username, password: userPass.password}})
     .then(function(response){
-      self.user = response.data.user
+      self.user = response.data.user;
+      console.log(self.user);
       localStorage.setItem('user_id', response.data.user.id);
       localStorage.setItem('token', response.data.token);
 
@@ -50,6 +51,27 @@ self.currentUserCheck = function(userId) {
     .catch(function(err){
       console.error(err);
     })
+  }
+
+  self.update = function(userPass) {
+    $http({
+      method: 'PATCH',
+      headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
+      url: `${rootUrl}/users/${self.user.id}`,
+      data: {
+        user: {
+          firstname: userPass.firstName, lastname: userPass.lastName, username: userPass.username, password: userPass.password
+        }
+      }
+    })
+    .then(function(response){
+      console.log(response);
+      self.user = response.data.user
+      $state.go('home');
+    })
+    .catch(function(err){
+      console.log(err);
+    });
   }
 
   self.logout = function() {
