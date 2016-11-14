@@ -43,8 +43,9 @@ self.currentUserCheck = function(userId) {
       self.user = response.data.user
       localStorage.setItem('user_id', response.data.user.id);
       localStorage.setItem('token', response.data.token);
-      self.getUserAlbums(self.user.id);
-      $state.go('home', {url: '/user-home', user: response.data.user});
+
+      // Get users favorite stores and previous orders
+      $state.go('home');
     })
     .catch(function(err){
       console.error(err);
