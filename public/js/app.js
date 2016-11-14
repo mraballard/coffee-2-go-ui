@@ -81,7 +81,22 @@
     $state.go('welcome');
   }
 
-
+  // ======================================================== //
+                 // STORE CONTROLLER //
+  // ======================================================== //
+  self.showMenu = function(store) {
+    console.log(store);
+    self.thisStore = store;
+    $http.get(`${rootUrl}/items`)
+    .then(function(response) {
+      console.log(response);
+      self.thisStore.menuItems = response.data.items;
+      $state.go('store');
+    })
+    .catch(function(err) {
+      console.log(err);
+    })
+  }
 
 
 
@@ -107,8 +122,9 @@
      self.service.nearbySearch(self.request, function(results, status){
       if (status == google.maps.GeocoderStatus.OK) {
         for (var i = 0; i < results.length; i++) {
-          marker = new google.maps.Marker({map: self.map, title: results[i].name, position: results[i].geometry.location, animation: google.maps.Animation.DROP});
+          marker = new google.maps.Marker({map: self.map, title: results[i].name, position: results[i].geometry.location, vicinity: results[i].vicinity, animation: google.maps.Animation.DROP});
           self.markers.push(marker);
+          console.log(marker);
            marker.addListener('click', function() {
              self.populateInfoWindow(this);
            });

@@ -8,18 +8,25 @@
   background-image: url('/img/logo_lg.jpg');
   height: 500px;
   width: 100%;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
+.map-page {
+  /*display: flex;
+  flex-direction: row;
+  justify-content: space-between;*/
+}
+
 /*  MAP CSS */
 html,
-     /*body {
-       font-family: Arial, sans-serif;
+     body {
+       /*font-family: Arial, sans-serif;
        height: 100%;
        margin: 0;
-       padding: 0;
-     }*/
+       padding: 0;*/
+     }
      .container {
        /*height: 100%;
        position: relative;*/

@@ -7,6 +7,7 @@
 }
 .container * {
   box-sizing: border-box;
+  background-color: black;
 }
 
 .flex-outer,
@@ -96,15 +97,19 @@
 }
 
 .holy-grail__sidebar {
+  display: flex;
+  align-items: center;
   /* nothing at narrow screens */
 }
 
 .holy-grail__sidebar--first {
   order: 1;
+  background: grey;
 }
 
 .holy-grail__sidebar--second {
   order: 3;
+  background: grey;
 }
 
 .holy-grail__content {
