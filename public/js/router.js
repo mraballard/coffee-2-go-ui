@@ -1,5 +1,5 @@
 (function() {
-  angular.module('coffee', ['ui.router'])
+  angular.module('coffee' , ['ui.router', 'ngMap'])
     .config(AuthRouter);
 
 

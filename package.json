@@ -1,0 +1,26 @@
+{
+  "name": "coffee-2-go-ui",
+  "version": "1.0.0",
+  "description": "This is the front end API created with AngularJS.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "ngmap": "^1.17.8",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mraballard/coffee-2-go-ui.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mraballard/coffee-2-go-ui/issues"
+  },
+  "homepage": "https://github.com/mraballard/coffee-2-go-ui#readme"
+}
