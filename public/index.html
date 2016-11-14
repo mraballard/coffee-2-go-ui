@@ -12,7 +12,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD3VJxibMKMy0AuShNYyq2g8p6Y1iqLL9A&libraries=places"></script>
 <!-- <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script> -->
-<script src='js/maps.js'></script>
+    <script src='js/maps.js'></script>
     <script src='js/router.js'></script>
     <script src='js/app.js'></script>
     <script src='js/google_place.js'></script>
@@ -29,8 +29,9 @@
           <li class="flexy-nav__item"><a href="#" class="flexy-nav__link">Item 3</a></li>
           <li class="flexy-nav__item"><a href="#" class="flexy-nav__link">Item 4</a></li>
         </ul>
-        <form ng-submit="main.searchGoogle(main.chosenPlace)" class="flexy-nav__form">
-          <input class="flexy-nav__search" ng-model="main.searchString" googleplace/>
+        <form ng-submit="main.geocodeAddress()" class="flexy-nav__form">
+          <input type="text" class="flexy-nav__search" ng-model="main.searchString" googleplace/>
+          <!-- <button type="submit" name="submit">Search</button> -->
         </form>
       </nav>
     </header>

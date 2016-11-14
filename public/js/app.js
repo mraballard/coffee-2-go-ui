@@ -23,55 +23,55 @@
     self.service;
     self.request;
     self.markers = [];
+    self.positions = [];
 
-   self.searchAndMark = function(map) {
-     self.service = new google.maps.places.PlacesService(map);
+   self.searchAndMark = function() {
+     self.markers = [];
+     self.service = new google.maps.places.PlacesService(self.map);
      self.service.nearbySearch(self.request, function(results, status){
       if (status == google.maps.GeocoderStatus.OK) {
         for (var i = 0; i < results.length; i++) {
-          marker = new google.maps.Marker({map: map, position: results[i].geometry.location, title: results[i].name, animation: google.maps.Animation.DROP});
-           self.markers.push(marker);
+          marker = new google.maps.Marker({map: self.map, title: results[i].name, position: results[i].geometry.location, animation: google.maps.Animation.DROP});
+          self.markers.push(marker);
            marker.addListener('click', function() {
              self.populateInfoWindow(this);
            });
          }
-         console.log(self.markers);
        }
      });
    }
 
    self.populateInfoWindow = function(marker) {
-     if (self.infowindow.marker != marker) {
        self.infowindow.marker = marker;
        self.infowindow.setContent(`<div>${marker.title}</div>`);
-       self.infowindow.open(self.map, marker);
-       self.infowindow.addListener('closeclick', function() {
-         self.infowindow.setMarker(null);
-       })
-     }
-   }
+        self.infowindow.open(self.map, marker);
+        self.infowindow.addListener('closeclick', function() {
+            self.infowindow.marker = null;
+         })
+    }
 
    self.geocodeAddress = function() {
-     self.geocoder.geocode({'address': self.searchString}, function(results, status) {
-       if (status === google.maps.GeocoderStatus.OK) {
-         NgMap.getMap('map')
-         .then(function(map) {
-           map.setCenter(results[0].geometry.location);
-           console.log(results[0].geometry.location);
-           self.request = {
-             location: results[0].geometry.location,
-             radius: 3000,
-             types: ['cafe']
-           };
-           self.searchAndMark(map);
-         })
-         .catch(function(err){
-           console.log(err);
-         });
-       } else {
-         alert('Geocode was not successful for the following reason: ' + status);
-       }
-     });
+      NgMap.getMap('map').then(function(map) {
+        return self.map = map;
+      })
+      .then(function(map){
+        self.geocoder.geocode({'address': self.searchString}, function(results, status) {
+          if (status === google.maps.GeocoderStatus.OK) {
+            self.map.setCenter(results[0].geometry.location);
+            self.request = {
+              location: results[0].geometry.location,
+              radius: 3000,
+              types: ['cafe']
+            };
+              self.searchAndMark();
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        })
+      })
+      .catch(function(err){
+        console.log(err);
+      });
    }
 
    self.geocodeAddress();
