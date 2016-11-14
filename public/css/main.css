@@ -1,4 +1,16 @@
 /* resets */
+#logo-sm {
+  height: 30%;
+  width: 30%;
+}
+#main-image {
+  margin-top: 5px;
+  background-image: url('/img/logo_lg.jpg');
+  height: 1000px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 .holy-grail {
   display: flex;
   flex-direction: column;

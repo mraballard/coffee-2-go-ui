@@ -51,12 +51,14 @@
     }
 
    self.geocodeAddress = function() {
+     $state.go('map');
       NgMap.getMap('map').then(function(map) {
         return self.map = map;
       })
       .then(function(map){
         self.geocoder.geocode({'address': self.searchString}, function(results, status) {
           if (status === google.maps.GeocoderStatus.OK) {
+
             self.map.setCenter(results[0].geometry.location);
             self.request = {
               location: results[0].geometry.location,

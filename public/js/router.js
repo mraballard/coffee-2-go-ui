@@ -22,9 +22,29 @@
           url: '/login',
           templateUrl: '../partials/_login.html'
         })
-         .state('home', {
+        .state('home', {
           url: '/home',
           templateUrl: '../partials/_home.html',
+        })
+        .state('map', {
+          url: '/map',
+          templateUrl: '../partials/_map.html',
+        })
+        .state('store', {
+          url: '/store',
+          templateUrl: '../partials/_menu.html',
+        })
+        .state('item', {
+          url: '/item',
+          templateUrl: '../partials/_item.html',
+        })
+        .state('cart', {
+          url: '/cart',
+          templateUrl: '../partials/_cart.html',
+        })
+        .state('order', {
+          url: '/order',
+          templateUrl: '../partials/_order.html',
         })
       }
 
