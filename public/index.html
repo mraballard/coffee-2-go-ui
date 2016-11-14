@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Coffee 2 Go</title>
+    <link href="css/flexbox.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="css/main.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 <!--*********************************************-->
@@ -24,9 +25,9 @@
       <nav class="flexy-nav">
         <button id="flexy-nav__toggle" class="flexy-nav__toggle">Toggle Nav</button>
         <ul id="flexy-nav__items" class="flexy-nav__items">
-          <li class="flexy-nav__item"><a href="#" class="flexy-nav__link"><img id="logo-sm" src="/img/logo_sm.png" alt="" /></a></li>
+          <li class="flexy-nav__item"><a ui-sref="welcome" class="flexy-nav__link"><img id="logo-sm" src="/img/logo_sm.png" alt="" /></a></li>
           <li class="flexy-nav__item"><a href="#" class="flexy-nav__link">My Account</a></li>
-          <li class="flexy-nav__item"><a href="#" class="flexy-nav__link">Cart</a></li>
+          <li class="flexy-nav__item"><button ng-click="main.logout()" class="flexy-nav__link">Logout</button></li>
         </ul>
         <form ng-submit="main.geocodeAddress()" class="flexy-nav__form">
           <input type="text" class="flexy-nav__search" ng-model="main.searchString" googleplace/>
@@ -43,14 +44,13 @@
     </div>
 
   <footer class="holy-grail__footer">
-    <!-- <nav class="flexy-nav">
+    <nav class="flexy-nav">
       <button id="flexy-nav__toggle" class="flexy-nav__toggle">Toggle Nav</button>
       <ul id="flexy-nav__items" class="flexy-nav__items">
-        <li class="flexy-nav__item"><a href="#" class="flexy-nav__link">Coffee-2-GO</a></li>
-        <li class="flexy-nav__item"><a href="#" class="flexy-nav__link">My Account</a></li>
-        <li class="flexy-nav__item"><a href="#" class="flexy-nav__link">Cart</a></li>
+        <li class="flexy-nav__item"><a ui-sref="signup" class="flexy-nav__link">Create Account</a></li>
+        <li class="flexy-nav__item"><a ui-sref="login" class="flexy-nav__link">Sign In</a></li>
       </ul>
-    </nav> -->
+    </nav>
   </footer>
 
 

@@ -1,0 +1,24 @@
+<form id="signup-form" ng-submit="main.signup(userPass)">
+  <ul class="flex-outer">
+    <li>
+      <label for="first-name">First Name</label>
+      <input ng-model="userPass.firstName" type="text" id="first-name" placeholder="Enter your first name here">
+    </li>
+    <li>
+      <label for="last-name">Last Name</label>
+      <input ng-model="userPass.lastName" type="text" id="last-name" placeholder="Enter your last name here">
+    </li>
+    <li>
+      <label for="username">Username</label>
+      <input ng-model="userPass.username" type="text" placeholder="username">
+    </li>
+    <li>
+      <label for="password">Password</label>
+      <input ng-model="userPass.password" type="password" placeholder="password">
+    </li>
+
+    <li>
+      <button type="submit">Submit</button>
+    </li>
+  </ul>
+</form>

@@ -9,6 +9,59 @@
   function mainController($scope, $http, $state, NgMap ) {
     var rootUrl = 'http://localhost:3000';
     var self = this;
+// ======================================================== //
+               // USER CONTROLLER //
+// ======================================================== //
+self.currentUserCheck = function(userId) {
+    if (localStorage.user_id == userId.toString()) {
+      self.isUser = true;
+    }
+    else {
+      self.isUser = false;
+    }
+  }
+
+  self.signup = function(userPass){
+    $http.post(`${rootUrl}/users`, {user: {firstname: userPass.firstName, lastname: userPass.lastName, username: userPass.username, password: userPass.password }})
+    .then(function(response) {
+      console.log(response);
+      self.user = response.data.user
+      localStorage.setItem('user_id', JSON.stringify(response.data.user.id));
+      localStorage.setItem('token', JSON.stringify(response.data.token));
+
+      // Get users favorite stores and previous orders
+      $state.go('home');
+    })
+    .catch(function(err) {
+      console.error(err);
+    });
+  }
+
+  self.login = function(userPass){
+    $http.post(`${rootUrl}/users/login`, {user: {username: userPass.username, password: userPass.password}})
+    .then(function(response){
+      self.user = response.data.user
+      localStorage.setItem('user_id', response.data.user.id);
+      localStorage.setItem('token', response.data.token);
+      self.getUserAlbums(self.user.id);
+      $state.go('home', {url: '/user-home', user: response.data.user});
+    })
+    .catch(function(err){
+      console.error(err);
+    })
+  }
+
+  self.logout = function() {
+    self.user = null;
+    localStorage.removeItem('token');
+    localStorage.removeItem('user_id');
+    $state.go('welcome');
+  }
+
+
+
+
+
 
 // ======================================================== //
                 // GOOGLE PLACES //
@@ -78,9 +131,7 @@
 
    self.geocodeAddress();
 
-// ======================================================== //
-               // USER CONTROLLER //
-// ======================================================== //
+
 
   } // Close mainController function
 
