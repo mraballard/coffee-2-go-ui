@@ -1,0 +1,14 @@
+<form ng-submit="main.searchGoogle(main.chosenPlace)">
+<div>
+    <div>Google Places Autocomplte integration in Angular</div>
+    <div>To Test, start typing the name of any Indian city</div>
+    <div>selection is: {{main.searchString}}</div>
+    <div><input ng-model="main.searchString" googleplace/></div>
+</div>
+<button ng-click="main.geocodeAddress()" type="submit" name="button">submit</button>
+</form>
+
+
+<div class="container">
+<div id="map" ng-model="main.map"></div>
+</div>
