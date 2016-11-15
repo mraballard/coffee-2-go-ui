@@ -10,13 +10,8 @@
       cart.items = [];
     }
     cart.add = function(item, quantity, store) {
-      console.log("cart add store:");
-      console.log(store);
-      console.log("currentStore");
-      console.log(cart.currentStore);
       if (!cart.currentStore || cart.currentStore === store){
         cart.currentStore = store;
-        console.log(cart.currentStore);
         cart.error = null;
         var indexOfProductInCart = -1;
         if (cart.items.length > 0) { // if cart is not empty, check to see if product is already in cart

@@ -113,30 +113,44 @@
     $cart.remove(item);
   }
 
+  self.addStoreToDatabase = function() {
+
+  }
+
   self.checkout = function() {
     $http({
       method: 'POST',
       headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
-      url: `${rootUrl}/store`,
+      url: `${rootUrl}/stores`,
       data: {
-        user: {
-          firstname: userPass.firstName, lastname: userPass.lastName, username: userPass.username, password: userPass.password
-        }
+        name: self.thisStore.title,
+        address: self.thisStore.vicinity,
+        lat: self.thisStore.position.lat(),
+        lng: self.thisStore.position.lng()
       }
     })
-    $http({
-      method: 'POST',
-      headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
-      url: `${rootUrl}/users/${self.user.id}/order`,
-      data: {
-        user: {
-          firstname: userPass.firstName, lastname: userPass.lastName, username: userPass.username, password: userPass.password
-        }
+    .then(function(response) {
+      console.log(response);
+      if (response.data.status == 202){
+        return response.data.store[0].id;
+      } else {
+        return response.data.store.id;
       }
+    })
+    .then(function(storeId) {
+      return $http({
+        method: 'POST',
+        headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
+        url: `${rootUrl}/users/${self.user.id}/orders`,
+        data: {
+          total: $cart.total,
+          user_id: self.user.id,
+          store_id: storeId
+        }
+      })
     })
     .then(function(response){
-      console.log(response);
-      self.user = response.data.user
+      // self.getOrders();
       $state.go('home');
     })
     .catch(function(err){
