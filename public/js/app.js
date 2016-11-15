@@ -84,6 +84,9 @@
   // ======================================================== //
                  // STORE CONTROLLER //
   // ======================================================== //
+
+  self.cart = $cart;
+  self.quantityAtCartIndex = [];
   self.showMenu = function(store) {
     console.log(store);
     self.thisStore = store;
@@ -100,6 +103,13 @@
 
   self.addToCart = function(item) {
     $cart.add(item,1);
+  }
+
+  self.updateCart = function(item, quantity) {
+    $cart.update(item, quantity);
+  }
+  self.removeFromCart = function(item) {
+    $cart.remove(item);
   }
 
 

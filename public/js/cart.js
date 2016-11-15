@@ -26,6 +26,20 @@
           cart.items[indexOfProductInCart].quantity += Number(quantity);
         }
     }
+
+    cart.update = function(item, quantity) {
+      indexOfProductInCart = cart.items.findIndex(function(el) {
+            return el.product._id === item.id;
+          });
+          cart.items[indexOfProductInCart].quantity = Number(quantity);
+    }
+    cart.remove = function(item) {
+      indexOfProductInCart = cart.items.findIndex(function(el) {
+            return el.product._id === item.id;
+          });
+          cart.items.splice(indexOfProductInCart, 1);
+    }
+
     cart.emptyCart();
     return cart;
   }
