@@ -4,9 +4,9 @@
   .controller('mainController', mainController);
 
 
-  mainController.$inject = ['$scope', '$http', '$state', 'NgMap'];
+  mainController.$inject = ['$scope', '$http', '$state', 'NgMap', '$cart'];
 
-  function mainController($scope, $http, $state, NgMap ) {
+  function mainController($scope, $http, $state, NgMap, $cart) {
     var rootUrl = 'http://localhost:3000';
     var self = this;
 // ======================================================== //
@@ -98,6 +98,9 @@
     })
   }
 
+  self.addToCart = function(item) {
+    $cart.add(item,1);
+  }
 
 
 
