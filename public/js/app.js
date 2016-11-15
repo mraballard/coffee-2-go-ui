@@ -103,8 +103,9 @@
     $cart.add(item,1);
   }
 
-  self.updateCart = function(item, quantity) {
+  self.updateCart = function(item, quantity, index) {
     $cart.update(item, quantity);
+    self.quantityAtCartIndex[index] = 0;
   }
   self.removeFromCart = function(item) {
     $cart.remove(item);

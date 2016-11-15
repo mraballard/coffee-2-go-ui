@@ -10,7 +10,7 @@
     <p>Quantity: {{orderItem.quantity}}</p>
     <p>Subtotal: {{orderItem.subtotal | currency}}</p>
     <div ng-if="main.user">
-      <form ng-submit="main.updateCart(orderItem, main.quantityAtCartIndex[$index])">
+      <form ng-submit="main.updateCart(orderItem, main.quantityAtCartIndex[$index], $index)">
         <label for="quantity">Quantity</label>
         <select name="quantity" ng-model="main.quantityAtCartIndex[$index]">
           <option ng-repeat="num in [1,2,3,4,5,6,7,8,9,10]" value="{{num}}">{{num}}</option>

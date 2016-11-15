@@ -31,15 +31,16 @@
 
     cart.update = function(item, quantity) {
       indexOfProductInCart = cart.items.findIndex(function(el) {
-            return el.product._id === item.id;
+            return el.product.id === item.product.id;
           });
+          console.log(cart.items[indexOfProductInCart]);
           cart.items[indexOfProductInCart].quantity = Number(quantity);
-          cart.items[indexOfProductInCart].subtotal = (item.price * cart.items[indexOfProductInCart].quantity);
+          cart.items[indexOfProductInCart].subtotal = (item.product.price * cart.items[indexOfProductInCart].quantity);
       cart.calculateTotal();
     }
     cart.remove = function(item) {
       indexOfProductInCart = cart.items.findIndex(function(el) {
-            return el.product._id === item.id;
+            return el.product.id === item.product.id;
           });
           cart.items.splice(indexOfProductInCart, 1);
       cart.calculateTotal();
@@ -50,6 +51,8 @@
       cart.items.forEach(function(el){
         cart.total += el.subtotal;
       })
+      console.log("new total");
+      console.log(cart.total);
     }
 
     cart.emptyCart();
