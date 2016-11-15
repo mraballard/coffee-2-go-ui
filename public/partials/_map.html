@@ -4,8 +4,8 @@
       <li ng-click="main.showMenu(place)">{{place.title}}</li>
     </ul>
   </div>
-  <div map-lazy-load="{{main.googleMapsUrl}}">
-    <ng-map zoom="15" id="map">
+  <div class="map-div" map-lazy-load="{{main.googleMapsUrl}}">
+    <ng-map zoom="15" center="{{main.center}}" id="map">
     </ng-map>
   </div>
 </div>

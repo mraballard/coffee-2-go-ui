@@ -105,32 +105,51 @@
                 // GOOGLE PLACES //
 // ======================================================== //
     $scope.gPlace;
-    self.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD3VJxibMKMy0AuShNYyq2g8p6Y1iqLL9A";
-    self.searchString = "O'brien 2336, Vitacura, Chile";
+    self.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?";
+    self.searchString = "";
     self.center = new google.maps.LatLng(-33.4023375, -70.59443920000001);
     // self.map = NgMap.getMap('map');
     self.infowindow = new google.maps.InfoWindow();
     self.geocoder = new google.maps.Geocoder();
-    self.service;
-    self.request;
     self.markers = [];
-    self.positions = [];
 
    self.searchAndMark = function() {
+     console.log("search and mark");
      self.markers = [];
-     self.service = new google.maps.places.PlacesService(self.map);
-     self.service.nearbySearch(self.request, function(results, status){
-      if (status == google.maps.GeocoderStatus.OK) {
-        for (var i = 0; i < results.length; i++) {
-          marker = new google.maps.Marker({map: self.map, title: results[i].name, position: results[i].geometry.location, vicinity: results[i].vicinity, animation: google.maps.Animation.DROP});
-          self.markers.push(marker);
-          console.log(marker);
-           marker.addListener('click', function() {
-             self.populateInfoWindow(this);
-           });
-         }
-       }
-     });
+     self.request = {
+       location: self.center,
+       radius: 1500,
+       types: ['cafe']
+     };
+     $state.go('map');
+      NgMap.getMap('map').then(function(map) {
+        return self.map = map;
+      })
+      .then(function(map){
+        return self.service = new google.maps.places.PlacesService(self.map);
+      })
+      .then(function(service){
+        service.nearbySearch(self.request, function(results, status){
+         if (status == google.maps.GeocoderStatus.OK) {
+           if (results.length > 8) {
+             var max = 8;
+           } else {
+             var max = results.length;
+           }
+           for (var i = 0; i < max; i++) {
+              marker = new google.maps.Marker({map: self.map, title: results[i].name, position: results[i].geometry.location, vicinity: results[i].vicinity, animation: google.maps.Animation.DROP});
+              self.markers.push(marker);
+              marker.addListener('click', function() {
+              self.populateInfoWindow(this);
+              });
+            }
+            $state.reload();
+          }
+        });
+      })
+      .catch(function(err){
+        console.log(err);
+      });
    }
 
    self.populateInfoWindow = function(marker) {
@@ -143,33 +162,15 @@
     }
 
    self.geocodeAddress = function() {
-     $state.go('map');
-      NgMap.getMap('map').then(function(map) {
-        return self.map = map;
-      })
-      .then(function(map){
-        self.geocoder.geocode({'address': self.searchString}, function(results, status) {
-          if (status === google.maps.GeocoderStatus.OK) {
-
-            self.map.setCenter(results[0].geometry.location);
-            self.request = {
-              location: results[0].geometry.location,
-              radius: 3000,
-              types: ['cafe']
-            };
-              self.searchAndMark();
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
-        })
-      })
-      .catch(function(err){
-        console.log(err);
-      });
+     self.geocoder.geocode({'address': self.searchString}, function(results, status) {
+       if (status === google.maps.GeocoderStatus.OK) {
+         self.center = results[0].geometry.location;
+         self.searchAndMark();
+       } else {
+         alert('Geocode was not successful for the following reason: ' + status);
+       }
+     })
    }
-
-   self.geocodeAddress();
-
 
 
   } // Close mainController function
