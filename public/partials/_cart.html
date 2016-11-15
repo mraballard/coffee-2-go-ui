@@ -8,7 +8,7 @@
     <h5>{{orderItem.product.name}}</h5>
     <p>Price: {{orderItem.product.price | currency}}</p>
     <p>Quantity: {{orderItem.quantity}}</p>
-    <p>Subtotal: {{orderItem.subtotal}}</p>
+    <p>Subtotal: {{orderItem.subtotal | currency}}</p>
     <div ng-if="main.user">
       <form ng-submit="main.updateCart(orderItem, main.quantityAtCartIndex[$index])">
         <label for="quantity">Quantity</label>

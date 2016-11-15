@@ -88,11 +88,9 @@
   self.cart = $cart;
   self.quantityAtCartIndex = [];
   self.showMenu = function(store) {
-    console.log(store);
     self.thisStore = store;
     $http.get(`${rootUrl}/items`)
     .then(function(response) {
-      console.log(response);
       self.thisStore.menuItems = response.data.items;
       $state.go('store');
     })
@@ -127,7 +125,6 @@
     self.markers = [];
 
    self.searchAndMark = function() {
-     console.log("search and mark");
      self.markers = [];
      self.request = {
        location: self.center,

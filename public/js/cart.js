@@ -15,7 +15,6 @@
         var indexOfProductInCart = -1;
         if (cart.items.length > 0) { // if cart is not empty, check to see if product is already in cart
           indexOfProductInCart = cart.items.findIndex(function(el) {
-            console.log(el);
             return el.product.id === item.id;
           });
         }
@@ -24,7 +23,10 @@
             cart.items.push({product: item, quantity: Number(quantity), subtotal: (item.price * quantity)})
         } else {
           cart.items[indexOfProductInCart].quantity += Number(quantity);
+          cart.items[indexOfProductInCart].subtotal = (item.price * cart.items[indexOfProductInCart].quantity);
+
         }
+        cart.calculateTotal();
     }
 
     cart.update = function(item, quantity) {
@@ -32,13 +34,15 @@
             return el.product._id === item.id;
           });
           cart.items[indexOfProductInCart].quantity = Number(quantity);
-          cart.items[indexOfProductInCart].subtotal = (item.price * Number(quantity));
+          cart.items[indexOfProductInCart].subtotal = (item.price * cart.items[indexOfProductInCart].quantity);
+      cart.calculateTotal();
     }
     cart.remove = function(item) {
       indexOfProductInCart = cart.items.findIndex(function(el) {
             return el.product._id === item.id;
           });
           cart.items.splice(indexOfProductInCart, 1);
+      cart.calculateTotal();
     }
 
     cart.calculateTotal = function() {
