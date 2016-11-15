@@ -2,5 +2,8 @@
 <h4>{{main.thisStore.vicinity}}</h4>
 
 <ul ng-repeat="item in main.thisStore.menuItems">
-  <li>{{item.name}}: {{item.description}} -- ${{item.price}}</li>
+  <form ng-submit="main.addToCart(item)">
+    <li>{{item.name}}: {{item.description}} -- ${{item.price}}</li>
+    <button type="submit" name="addToCart">Add to cart</button>
+  </form>
 </ul>
