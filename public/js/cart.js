@@ -3,15 +3,21 @@
   angular.module('coffee')
   .factory('$cart', Cart);
 
-  function Cart(){
+  function Cart($http){
     var cart = {};
     cart.total;
     cart.emptyCart = function(){
       cart.items = [];
-      console.log('$cart.items should be empty:');
-      console.log(cart.items);
     }
-    cart.add = function(item, quantity) {
+    cart.add = function(item, quantity, store) {
+      console.log("cart add store:");
+      console.log(store);
+      console.log("currentStore");
+      console.log(cart.currentStore);
+      if (!cart.currentStore || cart.currentStore === store){
+        cart.currentStore = store;
+        console.log(cart.currentStore);
+        cart.error = null;
         var indexOfProductInCart = -1;
         if (cart.items.length > 0) { // if cart is not empty, check to see if product is already in cart
           indexOfProductInCart = cart.items.findIndex(function(el) {
@@ -19,14 +25,16 @@
           });
         }
         if (indexOfProductInCart === -1) {
-            console.log('adding to cart');
             cart.items.push({product: item, quantity: Number(quantity), subtotal: (item.price * quantity)})
         } else {
           cart.items[indexOfProductInCart].quantity += Number(quantity);
           cart.items[indexOfProductInCart].subtotal = (item.price * cart.items[indexOfProductInCart].quantity);
-
         }
         cart.calculateTotal();
+      } else {
+        cart.error = "Adding items from different store. Empty cart or add from same store."
+        console.log(cart.error);
+      }
     }
 
     cart.update = function(item, quantity) {

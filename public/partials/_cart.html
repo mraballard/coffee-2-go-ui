@@ -4,6 +4,10 @@
   <h4>Total ({{main.cart.items.length}} {{main.cart.items.length === 1? "item" : "items"}}):</h4>
     <h4>{{main.cart.total | currency}}</h4>
 
+    <form ng-submit="main.checkout()" ng-show="main.cart.items.length && main.user">
+      <input type="submit" value="Place Order">
+    </form>
+
   <div ng-repeat="orderItem in main.cart.items">
     <h5>{{orderItem.product.name}}</h5>
     <p>Price: {{orderItem.product.price | currency}}</p>
@@ -24,7 +28,7 @@
   </div>
 
 
-  <form ng-submit="main.placeOrder(main.cart,authCtrl.user)" ng-show="main.cart.length">
+  <form ng-submit="main.checkout()" ng-show="main.cart.items.length && main.user">
     <input type="submit" value="Place Order">
   </form>
 </div>

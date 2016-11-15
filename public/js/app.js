@@ -89,6 +89,7 @@
   self.quantityAtCartIndex = [];
   self.showMenu = function(store) {
     self.thisStore = store;
+
     $http.get(`${rootUrl}/items`)
     .then(function(response) {
       self.thisStore.menuItems = response.data.items;
@@ -100,17 +101,48 @@
   }
 
   self.addToCart = function(item) {
-    $cart.add(item,1);
+    $cart.add(item,1, self.thisStore);
   }
 
   self.updateCart = function(item, quantity, index) {
     $cart.update(item, quantity);
     self.quantityAtCartIndex[index] = 0;
   }
+
   self.removeFromCart = function(item) {
     $cart.remove(item);
   }
 
+  self.checkout = function() {
+    $http({
+      method: 'POST',
+      headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
+      url: `${rootUrl}/store`,
+      data: {
+        user: {
+          firstname: userPass.firstName, lastname: userPass.lastName, username: userPass.username, password: userPass.password
+        }
+      }
+    })
+    $http({
+      method: 'POST',
+      headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
+      url: `${rootUrl}/users/${self.user.id}/order`,
+      data: {
+        user: {
+          firstname: userPass.firstName, lastname: userPass.lastName, username: userPass.username, password: userPass.password
+        }
+      }
+    })
+    .then(function(response){
+      console.log(response);
+      self.user = response.data.user
+      $state.go('home');
+    })
+    .catch(function(err){
+      console.log(err);
+    });
+  }
 
 
 // ======================================================== //
