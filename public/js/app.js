@@ -179,8 +179,8 @@
       url: `${rootUrl}/users/${self.user.id}/orders/${self.thisOrder.id}`,
     })
     .then(function(response) {
-      self.thisOrder.items = response.data.items;
-      console.log(self.thisOrder.items);
+      self.thisOrder.breakdown = response.data.items;
+      console.log(self.thisOrder.breakdown);
       $state.go('order');
     })
     .catch(function(err) {
