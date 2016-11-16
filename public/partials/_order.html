@@ -1,0 +1,9 @@
+<h3> ORDER Details: </h3>
+<div id="this-order">
+  <h5>{{main.thisOrder.total | currency}}  {{main.thisOrder.createdAt | date:"MM/dd/yyyy 'at' h:mma"}}</h5>
+    <ul>
+      <li ng-repeat="item in main.thisOrder.items">
+        {{item.name}} {{item.name}} @ {{item.price | currency}}
+      </li>
+    </ul>
+</div>

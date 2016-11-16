@@ -6,6 +6,15 @@
   function Cart($http){
     var cart = {};
     cart.total;
+    cart.itemIds = [];
+
+    cart.getProducts = function() {
+      cart.items.forEach(function(el){
+        cart.itemIds.push(el.product.id);
+      });
+      return cart.itemIds;
+    }
+
     cart.emptyCart = function(){
       cart.items = [];
     }

@@ -41,10 +41,9 @@
     $http.post(`${rootUrl}/users/login`, {user: {username: userPass.username, password: userPass.password}})
     .then(function(response){
       self.user = response.data.user;
-      console.log(self.user);
       localStorage.setItem('user_id', response.data.user.id);
       localStorage.setItem('token', response.data.token);
-
+      self.getOrders();
       // Get users favorite stores and previous orders
       $state.go('home');
     })
@@ -101,7 +100,7 @@
   }
 
   self.addToCart = function(item) {
-    $cart.add(item,1, self.thisStore);
+    $cart.add(item, 1, self.thisStore);
   }
 
   self.updateCart = function(item, quantity, index) {
@@ -113,12 +112,8 @@
     $cart.remove(item);
   }
 
-  self.addStoreToDatabase = function() {
-
-  }
-
   self.checkout = function() {
-    $http({
+    $http({ // ADDS STORE TO DATABASE
       method: 'POST',
       headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
       url: `${rootUrl}/stores`,
@@ -130,7 +125,7 @@
       }
     })
     .then(function(response) {
-      console.log(response);
+      // Returns storeId for Order Post route
       if (response.data.status == 202){
         return response.data.store[0].id;
       } else {
@@ -138,6 +133,8 @@
       }
     })
     .then(function(storeId) {
+      var items = $cart.getProducts();
+      debugger;
       return $http({
         method: 'POST',
         headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
@@ -145,12 +142,13 @@
         data: {
           total: $cart.total,
           user_id: self.user.id,
-          store_id: storeId
+          store_id: storeId,
+          items: items
         }
       })
     })
     .then(function(response){
-      // self.getOrders();
+      self.getOrders();
       $state.go('home');
     })
     .catch(function(err){
@@ -158,6 +156,37 @@
     });
   }
 
+  self.getOrders = function() {
+    $http({
+      method: 'GET',
+      headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
+      url: `${rootUrl}/users/${self.user.id}/orders`,
+    })
+    .then(function(response) {
+      self.orders = response.data.orders;
+      console.log(self.orders);
+    })
+    .catch(function(err) {
+      console.log(err);
+    })
+  }
+
+  self.showOrder = function(order) {
+    self.thisOrder = order;
+    $http({
+      method: 'GET',
+      headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
+      url: `${rootUrl}/users/${self.user.id}/orders/${self.thisOrder.id}`,
+    })
+    .then(function(response) {
+      self.thisOrder.items = response.data.items;
+      console.log(self.thisOrder.items);
+      $state.go('order');
+    })
+    .catch(function(err) {
+      console.log(err);
+    })
+  }
 
 // ======================================================== //
                 // GOOGLE PLACES //
