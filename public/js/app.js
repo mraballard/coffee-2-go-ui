@@ -134,7 +134,7 @@
     })
     .then(function(storeId) {
       var items = $cart.getProducts();
-      debugger;
+      console.log($cart.items);
       return $http({
         method: 'POST',
         headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
@@ -143,7 +143,7 @@
           total: $cart.total,
           user_id: self.user.id,
           store_id: storeId,
-          items: items
+          items: $cart.items
         }
       })
     })
