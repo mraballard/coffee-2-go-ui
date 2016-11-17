@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="css/test.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <title></title>
+  </head>
+  <body>
+    <div id="flexbox">
+      <header id="main-header" class="main_section">
+        <nav ng-if="main.user">
+          <ul>
+            <li><a ui-sref="welcome">C2G</a></li>
+            <li><a ui-sref="home">Home</a></li>
+            <li><a ui-sref="update">Edit Your Account</a></li>
+            <li><a ui-sref="cart">Cart</a></li>
+            <li ng-click="main.logout()">Logout</li>
+          </ul>
+          <form ng-submit="main.geocodeAddress()">
+            <input type="text" ng-model="main.searchString" googleplace/>
+          </form>
+        </nav>
+        <nav ng-if="!main.user">
+          <ul>
+            <li><a ui-sref="welcome">C2G</a></li>
+            <li><a ui-sref="signup">Sign Up</a></li>
+            <li><a ui-sref="login">Sign In</a></li>
+          </ul>
+          <form ng-submit="main.geocodeAddress()">
+            <input type="text" ng-model="main.searchString" googleplace/>
+          </form>
+        </nav>
+      </header>
+      <nav id="main-nav" class="main_section">
+        <nav ng-if="main.user">
+          <ul>
+            <li><a ui-sref="welcome">C2G</a></li>
+            <li><a ui-sref="home">Home</a></li>
+            <li><a ui-sref="update">Edit Your Account</a></li>
+            <li><a ui-sref="cart">Cart</a></li>
+            <li ng-click="main.logout()">Logout</li>
+          </ul>
+          <form ng-submit="main.geocodeAddress()">
+            <input type="text" ng-model="main.searchString" googleplace/>
+          </form>
+        </nav>
+        <nav ng-if="!main.user">
+          <ul>
+            <li><a ui-sref="welcome">C2G</a></li>
+            <li><a ui-sref="signup">Sign Up</a></li>
+            <li><a ui-sref="login">Sign In</a></li>
+          </ul>
+          <form ng-submit="main.geocodeAddress()">
+            <input type="text" ng-model="main.searchString" googleplace/>
+          </form>
+        </nav>
+      </nav>
+      <main id="main-main" class="main_section" ui-vew></main>
+      <aside id="main-aside" class="main_section"></aside>
+      <footer id="main-footer" class="main_section">
+        <nav class="flexy-nav">
+          <ul>
+            <li ><a ui-sref="welcome"><img id="logo-sm" src="/img/logo_sm.png" alt="" /></a></li>
+            <li ><a ui-sref="update" class="">My Account</a></li>
+            <li ng-click="main.logout()" class="">Logout</li>
+          </ul>
+          <form ng-submit="main.geocodeAddress()" class="">
+            <input type="text" class="" ng-model="main.searchString" googleplace/>
+          </form>
+        </nav>
+      </footer>
+    </div>
+
+    <script src='js/nav.js'></script>
+  </body>
+</html>

@@ -227,6 +227,7 @@
        radius: 1500,
        types: ['cafe']
      };
+     console.log("$state go to map");
      $state.go('map');
       NgMap.getMap('map').then(function(map) {
         return self.map = map;
