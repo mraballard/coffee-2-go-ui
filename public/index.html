@@ -27,22 +27,22 @@
     <div id="flexbox">
       <header header id="main-header" class="main_section">
         <nav ng-if="main.user" class="flexy-nav">
-          <ul id="flexy-nav__items" class="flexy-nav__items">
-            <li class="flexy-nav__item"><a ui-sref="welcome" class="flexy-nav__link">C2G</a></li>
-            <li class="flexy-nav__item"><a ui-sref="home" class="flexy-nav__link">Home</a></li>
-            <li class="flexy-nav__item"><a ui-sref="update" class="flexy-nav__link">Edit Your Account</a></li>
-            <li class="flexy-nav__item"><a ui-sref="cart" class="flexy-nav__link">Cart</a></li>
-            <li class="flexy-nav__item" ng-click="main.logout()">Logout</li>
+          <ul class="header_ul">
+            <li class="header_li"><a ui-sref="welcome" class="flex_link">C2G</a></li>
+            <li class="header_li"><a ui-sref="home" class="flex_link">Home</a></li>
+            <li class="header_li"><a ui-sref="update" class="flex_link">Edit Your Account</a></li>
+            <li class="header_li"><a ui-sref="cart" class="flex_link">Cart</a></li>
+            <li class="header_li" ng-click="main.logout()">Logout</li>
           </ul>
           <form ng-submit="main.geocodeAddress()" class="flexy-nav__form">
             <input type="text" class="flexy-nav__search" ng-model="main.searchString" googleplace/>
           </form>
         </nav>
         <nav ng-if="!main.user" class="flexy-nav">
-          <ul id="flexy-nav__items" class="flexy-nav__items">
-            <li class="flexy-nav__item"><a ui-sref="welcome" class="flexy-nav__link">C2G</a></li>
-            <li class="flexy-nav__item"><a ui-sref="signup" class="flexy-nav__link">Sign Up</a></li>
-            <li class="flexy-nav__item"><a ui-sref="login" class="flexy-nav__link">Sign In</a></li>
+          <ul class="header_ul">
+            <li class="header_li"><a ui-sref="welcome" class="flex_link">C2G</a></li>
+            <li class="header_li"><a ui-sref="signup" class="flex_link">Sign Up</a></li>
+            <li class="header_li"><a ui-sref="login" class="flex_link">Sign In</a></li>
           </ul>
           <form ng-submit="main.geocodeAddress()" class="flexy-nav__form">
             <input type="text" class="flexy-nav__search" ng-model="main.searchString" googleplace/>
@@ -51,33 +51,33 @@
       </header>
       <nav id="main-nav" class="main_section">
         <nav ng-if="main.user" class="flexy-nav">
-          <ul id="flexy-nav__items" class="flexy-nav__items">
-            <li class="flexy-nav__item"><a ui-sref="welcome" class="flexy-nav__link">C2G</a></li>
-            <li class="flexy-nav__item"><a ui-sref="home" class="flexy-nav__link">Home</a></li>
-            <li class="flexy-nav__item"><a ui-sref="update" class="flexy-nav__link">Edit Your Account</a></li>
-            <li class="flexy-nav__item"><a ui-sref="cart" class="flexy-nav__link">Cart</a></li>
-            <li class="flexy-nav__item" ng-click="main.logout()">Logout</li>
+          <ul class="aside_ul">
+            <li class="aside_li"><a ui-sref="welcome" class="flex_link">C2G</a></li>
+            <li class="aside_li"><a ui-sref="home" class="flex_link">Home</a></li>
+            <li class="aside_li"><a ui-sref="update" class="flex_link">Edit Your Account</a></li>
+            <li class="aside_li"><a ui-sref="cart" class="flex_link">Cart</a></li>
+            <li class="aside_li" ng-click="main.logout()">Logout</li>
           </ul>
         </nav>
         <nav ng-if="!main.user" class="flexy-nav">
-          <ul id="flexy-nav__items" class="flexy-nav__items">
-            <li class="flexy-nav__item"><a ui-sref="welcome" class="flexy-nav__link">C2G</a></li>
-            <li class="flexy-nav__item"><a ui-sref="signup" class="flexy-nav__link">Sign Up</a></li>
-            <li class="flexy-nav__item"><a ui-sref="login" class="flexy-nav__link">Sign In</a></li>
+          <ul class="aside_ul">
+            <li class="aside_li"><a ui-sref="welcome" class="flex_link">C2G</a></li>
+            <li class="aside_li"><a ui-sref="signup" class="flex_link">Sign Up</a></li>
+            <li class="aside_li"><a ui-sref="login" class="flex_link">Sign In</a></li>
           </ul>
-          <form ng-submit="main.geocodeAddress()" class="flexy-nav__form">
-            <input type="text" class="flexy-nav__search" ng-model="main.searchString" googleplace/>
-          </form>
         </nav>
       </nav>
-      <main id="main-main" ui-vew></main>
-      <aside id="main-aside" class="main_section"></aside>
+      <main id="main-main" class="main_section">
+        <main ui-view>
+
+        </main>
+      </main>
 
       <footer id="main-footer" class="main_section">
         <nav class="flexy-nav">
-          <ul id="flexy-nav__items" class="flexy-nav__items">
-            <li class="flexy-nav__item"><a ui-sref="signup" class="flexy-nav__link">Create Account</a></li>
-            <li class="flexy-nav__item"><a ui-sref="login" class="flexy-nav__link">Sign In</a></li>
+          <ul class="header_ul">
+            <li class="header_li"><a ui-sref="signup" class="flex_link">Create Account</a></li>
+            <li class="header_li"><a ui-sref="login" class="flex_link">Sign In</a></li>
           </ul>
         </nav>
       </footer>

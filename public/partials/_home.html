@@ -1,6 +1,14 @@
-<h3> ORDERS </h3>
-<div id="orders-list">
-  <details ng-repeat="order in main.orders">
-    <li ng-click="main.showOrder(order)">Order {{order.id}} : {{order.total | currency}} {{order.created_at | date:"MM/dd/yyyy 'at' h:mma"}}</li>
-  </details>
+
+
+<div id="home-page">
+  <main id="stores-list" class="main_section">
+    <h3>RECENT STORES:</h3>
+  </main>
+
+  <aside id="orders-list" class="main_section">
+    <h3> RECENT ORDERS </h3>
+    <details ng-repeat="order in main.orders">
+      <li ng-click="main.showOrder(order)">Order {{order.id}} : {{order.total | currency}} {{order.created_at | date:"MM/dd/yyyy 'at' h:mma"}}</li>
+    </details>
+  </aside>
 </div>
