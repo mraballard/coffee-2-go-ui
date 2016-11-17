@@ -21,14 +21,31 @@
       }
   }
 
+  self.getUserFromLocalStorage = function() {
+    $http({
+      method: 'GET',
+      headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
+      url: `${rootUrl}/users/current-user`
+    })
+    .then(function(response){
+      self.user = response.data.user
+      console.log(self.user);
+      self.getOrders();
+      $state.go('home');
+    })
+    .catch(function(err) {
+      console.log(err);
+    })
+
+  }
+
   self.signup = function(userPass){
     $http.post(`${rootUrl}/users`, {user: {firstname: userPass.firstName, lastname: userPass.lastName, username: userPass.username, password: userPass.password }})
     .then(function(response) {
       console.log(response);
       self.user = response.data.user;
-      localStorage.setItem('user_id', JSON.stringify(response.data.user.id));
+      localStorage.setItem('user_id', JSON.stringify(self.user.id));
       localStorage.setItem('token', JSON.stringify(response.data.token));
-
       // Get users favorite stores and previous orders
       $state.go('home');
     })
@@ -41,7 +58,7 @@
     $http.post(`${rootUrl}/users/login`, {user: {username: userPass.username, password: userPass.password}})
     .then(function(response){
       self.user = response.data.user;
-      localStorage.setItem('user_id', response.data.user.id);
+      localStorage.setItem('user_id', self.user.id);
       localStorage.setItem('token', response.data.token);
       self.getOrders();
       // Get users favorite stores and previous orders
@@ -75,6 +92,8 @@
 
   self.logout = function() {
     self.user = null;
+    self.orders = [];
+    self.thisOrder = null;
     localStorage.removeItem('token');
     localStorage.removeItem('user_id');
     $state.go('welcome');
@@ -259,6 +278,9 @@
    }
 
 
+
+
+   self.getUserFromLocalStorage();
   } // Close mainController function
 
 })()
