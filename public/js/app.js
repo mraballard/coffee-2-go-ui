@@ -167,6 +167,7 @@
       })
     })
     .then(function(response){
+      $cart.emptyCart();
       self.getOrders();
       $state.go('home');
     })
