@@ -75,6 +75,46 @@ a {
   color: #6d6d6d;
   background-color: #fff;
   border: solid 2px #e7e7e7;
+  font-size: 1.2em;
+}
+.form-container {
+  font-size: 2em;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#signup-form {
+  display: flex;
+  flex-flow: column;
+  padding: 50px;
+  background: #92AF8F;
+}
+.input-section input {
+  display: flex;
+  flex-flow: column;
+}
+.input-section input {
+  display: block;
+  margin: 0;
+  padding: 0 4px;
+  width: 100%;
+  height: 35px;
+  color: #6d6d6d;
+  background-color: #fff;
+  border: solid 2px #e7e7e7;
+  font-size: 0.8em;
+}
+.input-section button {
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+  background-color: #006341;
+  border: solid 2px #e7e7e7;
+  font-size: 0.8em;
+  color: white;
+  letter-spacing: 2px;
 }
 #flexbox {
   display: flex;

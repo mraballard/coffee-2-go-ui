@@ -1,16 +1,17 @@
-<form id="signup-form" ng-submit="main.login(userPass)">
-  <ul class="flex-outer">
-    <li>
-      <label for="username">Username</label>
-      <input ng-model="userPass.username" type="text" placeholder="username">
-    </li>
-    <li>
-      <label for="password">Password</label>
-      <input ng-model="userPass.password" type="password" placeholder="password">
-    </li>
 
-    <li>
-      <button type="submit">Submit</button>
-    </li>
-  </ul>
-</form>
+<div class="form-container">
+  <form id="signup-form" ng-submit="main.login(userPass)">
+      <div class="input-section">
+        <label for="username">Username</label>
+        <input ng-model="userPass.username" type="text" placeholder="username">
+      </div>
+      <div class="input-section">
+        <label for="password">Password</label>
+        <input ng-model="userPass.password" type="password" placeholder="password">
+      </div>
+      <div class="input-section">
+        <button type="submit">Submit</button>
+      </div>
+
+  </form>
+</div>
