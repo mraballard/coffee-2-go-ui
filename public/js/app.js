@@ -31,6 +31,7 @@
       self.user = response.data.user
       console.log(self.user);
       self.getOrders();
+      self.getStores();
       $state.go('home');
     })
     .catch(function(err) {
@@ -61,6 +62,7 @@
       localStorage.setItem('user_id', self.user.id);
       localStorage.setItem('token', response.data.token);
       self.getOrders();
+      self.getStores();
       // Get users favorite stores and previous orders
       $state.go('home');
     })
@@ -169,6 +171,7 @@
     .then(function(response){
       $cart.emptyCart();
       self.getOrders();
+      self.getStores();
       $state.go('home');
     })
     .catch(function(err){
@@ -185,6 +188,21 @@
     .then(function(response) {
       self.orders = response.data.orders;
       console.log(self.orders);
+    })
+    .catch(function(err) {
+      console.log(err);
+    })
+  }
+
+  self.getStores = function() {
+    $http({
+      method: 'GET',
+      headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
+      url: `${rootUrl}/users/${self.user.id}/stores`,
+    })
+    .then(function(response) {
+      self.stores = response.data.stores;
+      console.log(self.stores);
     })
     .catch(function(err) {
       console.log(err);

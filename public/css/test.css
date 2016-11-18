@@ -2,7 +2,9 @@ body {
   margin: 0px;
   font-family: Lato;
 }
-
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 #flexbox {
   display: flex;
   flex-flow: row wrap;
@@ -12,7 +14,7 @@ body {
   background: #CCC;
   border-radius: 7px;
   margin: 5px;
-  padding: 20px;
+  padding: 5px;
 }
 
 #main-header {
@@ -42,7 +44,7 @@ body {
 
 #stores-list {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column;
   flex: 0 1 80%;
 }
 
@@ -54,6 +56,6 @@ body {
 
 #main-footer {
   order: 5;
-  height: 100px;
+  height: 60px;
   flex: 0 1 100%;
 }

@@ -23,14 +23,12 @@
 
   </head>
 
-  <body ng-controller="mainController as main" class="holy-grail">
+  <body ng-controller="mainController as main">
     <div id="flexbox">
       <header header id="main-header" class="main_section">
         <nav ng-if="main.user" class="flexy-nav">
           <ul class="header_ul">
-            <li class="header_li"><a ui-sref="welcome" class="flex_link">C2G</a></li>
-            <li class="header_li"><a ui-sref="home" class="flex_link">Home</a></li>
-            <li class="header_li"><a ui-sref="update" class="flex_link">Edit Your Account</a></li>
+            <li class="header_li"><a ui-sref="update" class="flex_link">Edit Your Info</a></li>
             <li class="header_li"><a ui-sref="cart" class="flex_link">Cart</a></li>
             <li class="header_li" ng-click="main.logout()">Logout</li>
           </ul>
@@ -40,7 +38,6 @@
         </nav>
         <nav ng-if="!main.user" class="flexy-nav">
           <ul class="header_ul">
-            <li class="header_li"><a ui-sref="welcome" class="flex_link">C2G</a></li>
             <li class="header_li"><a ui-sref="signup" class="flex_link">Sign Up</a></li>
             <li class="header_li"><a ui-sref="login" class="flex_link">Sign In</a></li>
           </ul>
@@ -49,21 +46,11 @@
           </form>
         </nav>
       </header>
-      <nav id="main-nav" class="main_section">
-        <nav ng-if="main.user" class="flexy-nav">
+      <nav ng-if="main.user" id="main-nav" class="main_section">
+        <nav class="flexy-nav">
           <ul class="aside_ul">
-            <li class="aside_li"><a ui-sref="welcome" class="flex_link">C2G</a></li>
             <li class="aside_li"><a ui-sref="home" class="flex_link">Home</a></li>
-            <li class="aside_li"><a ui-sref="update" class="flex_link">Edit Your Account</a></li>
-            <li class="aside_li"><a ui-sref="cart" class="flex_link">Cart</a></li>
-            <li class="aside_li" ng-click="main.logout()">Logout</li>
-          </ul>
-        </nav>
-        <nav ng-if="!main.user" class="flexy-nav">
-          <ul class="aside_ul">
-            <li class="aside_li"><a ui-sref="welcome" class="flex_link">C2G</a></li>
-            <li class="aside_li"><a ui-sref="signup" class="flex_link">Sign Up</a></li>
-            <li class="aside_li"><a ui-sref="login" class="flex_link">Sign In</a></li>
+            <li class="aside_li"><a ui-sref="update" class="flex_link">Account</a></li>
           </ul>
         </nav>
       </nav>
