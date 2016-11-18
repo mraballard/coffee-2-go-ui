@@ -1,10 +1,10 @@
 
 <h2 id="recent-stores-header">RECENT STORES:</h2>
 <div id="home-page">
-  <main id="stores-list">
+  <main class="card-list">
 
     <div ng-repeat="store in main.stores">
-      <div class="store-card" ng-click="">
+      <div class="card" ng-click="main.geocodeAddress(store.address)">
         <h4>{{store.name}}:</h4>
         <h6>{{store.address}}</h6>
       </div>

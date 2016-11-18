@@ -290,8 +290,8 @@
          })
     }
 
-   self.geocodeAddress = function() {
-     self.geocoder.geocode({'address': self.searchString}, function(results, status) {
+   self.geocodeAddress = function(address) {
+     self.geocoder.geocode({'address': address}, function(results, status) {
        if (status === google.maps.GeocoderStatus.OK) {
          self.center = results[0].geometry.location;
          self.searchAndMark();

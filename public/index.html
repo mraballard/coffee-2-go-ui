@@ -38,7 +38,7 @@
             </div>
             <div class="icon-header" ng-click="main.logout()"><span>Logout</span>
             </div>
-          <form ng-submit="main.geocodeAddress()" class="search">
+          <form ng-submit="main.geocodeAddress(main.searchString)" class="search">
             <input type="search" class="flexy-nav__search" ng-model="main.searchString" googleplace/>
           </form>
         </nav>

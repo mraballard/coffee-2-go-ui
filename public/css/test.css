@@ -56,22 +56,43 @@ a, span {
   color: white;
   letter-spacing: 1px;
 }
+p {
+  font-size: 0.8em;
+}
 
-.store-card {
+.card {
   width: 200px;
   height: 200px;
   background: #92AF8F;
   padding: 10px;
   margin: 5px;
 }
+.menu-item {
+  display: flex;
+  width: 300px;
+  height: 300px;
+  background: #92AF8F;
+  padding: 10px;
+  margin: 5px;
+  flex-flow: column;
+  justify-content: space-between;
+}
 #recent-stores-header {
   margin-left: 20px;
 
 }
-#stores-list {
+#menu-page {
+  display: flex;
+}
+.add-to-cart {
+  text-align: center;
+  padding: 5px 10px 5px 10px;
+  border: 1px solid black;
+}
+.card-list {
   display: flex;
   flex-flow: row wrap;
-  flex: 0 1 70%;
+  flex: 0 1 100%;
   margin-left: 10px;
 }
 
@@ -83,7 +104,6 @@ a, span {
   padding-left: 10px;
   margin-bottom: 5px;
   justify-content: space-around;
-
 }
 .order-list {
   align-self: flex-start;
@@ -140,7 +160,7 @@ a, span {
   width: 300px;
 }
 .search input {
-  display: block;
+  /*display: block;*/
   margin: 0;
   padding: 0 4px;
   width: 100%;
