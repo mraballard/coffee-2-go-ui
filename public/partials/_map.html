@@ -1,8 +1,8 @@
 <div class="map-page">
-  <div class="place-listing">
-    <ul class="" ng-repeat="place in main.markers">
-      <li ng-click="main.showMenu(place)">{{place.title}}</li>
-    </ul>
+  <div class="list-box">
+    <div class="place-list" ng-repeat="place in main.markers">
+      <div class="place" ng-click="main.showMenu(place)">{{place.title}}</div>
+    </div>
   </div>
   <div class="map-div" map-lazy-load="{{main.googleMapsUrl}}">
     <ng-map zoom="15" center="{{main.center}}" id="map">

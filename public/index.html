@@ -37,16 +37,16 @@
           </form>
         </nav>
         <nav ng-if="!main.user" class="bar">
-          <div class="icon icon-1">
+          <div class="icon-header">
             <a ui-sref="welcome">C-2-Go</a>
           </div>
-          <div class="icon icon-2">
+          <div class="icon-header">
             <a ui-sref="signup">Sign Up</a>
           </div>
-          <div class="icon icon-3">
+          <div class="icon-header">
             <a ui-sref="login">Sign In</a>
           </div>
-          <div class="username">
+          <div class="icon-header">
             <a ui-sref="login">Username</a>
           </div>
           <form ng-submit="main.geocodeAddress()" class="search">
@@ -68,12 +68,10 @@
         </main>
       </main>
 
-      <footer id="main-footer" class="main_section">
-        <nav class="flexy-nav">
-          <ul class="header_ul">
-            <li class="header_li"><a ui-sref="signup" class="flex_link">Create Account</a></li>
-            <li class="header_li"><a ui-sref="login" class="flex_link">Sign In</a></li>
-          </ul>
+      <footer id="main-footer" class="main-footer">
+        <nav class="bar">
+          <div class="icon-footer"><a ui-sref="signup">Sign Up</a></div>
+          <div class="icon-footer"><a ui-sref="login">Sign In</a></div>
         </nav>
       </footer>
     </div>

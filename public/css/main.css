@@ -3,9 +3,23 @@
   display: flex;
   flex-direction: row;
 }
-.place-listing {
+.list-box {
   flex-basis: 20%;
+  min-width: 100px;
   height: 600px;
+  background: #92AF8F;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+
+.place-list {
+  align-self: flex-end;
+  width: 90%;
+  display: flex;
+  color: white;
+  background: #006341;
+  padding: 10px;
 }
 .map-div {
   flex-basis: 80%;
