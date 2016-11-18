@@ -36,13 +36,21 @@
             <input type="text" class="flexy-nav__search" ng-model="main.searchString" googleplace/>
           </form>
         </nav>
-        <nav ng-if="!main.user" class="flexy-nav">
-          <ul class="header_ul">
-            <li class="header_li"><a ui-sref="signup" class="flex_link">Sign Up</a></li>
-            <li class="header_li"><a ui-sref="login" class="flex_link">Sign In</a></li>
-          </ul>
-          <form ng-submit="main.geocodeAddress()" class="flexy-nav__form">
-            <input type="text" class="flexy-nav__search" ng-model="main.searchString" googleplace/>
+        <nav ng-if="!main.user" class="bar">
+          <div class="icon icon-1">
+            <a ui-sref="welcome">C-2-Go</a>
+          </div>
+          <div class="icon icon-2">
+            <a ui-sref="signup">Sign Up</a>
+          </div>
+          <div class="icon icon-3">
+            <a ui-sref="login">Sign In</a>
+          </div>
+          <div class="username">
+            <a ui-sref="login">Username</a>
+          </div>
+          <form ng-submit="main.geocodeAddress()" class="search">
+            <input type="search" class="flexy-nav__search" ng-model="main.searchString" googleplace/>
           </form>
         </nav>
       </header>
