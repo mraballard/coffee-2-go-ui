@@ -26,17 +26,23 @@
   <body ng-controller="mainController as main">
     <div id="flexbox">
       <header header id="main-header" class="main_section">
-        <nav ng-if="main.user" class="flexy-nav">
-          <ul class="header_ul">
-            <li class="header_li"><a ui-sref="update" class="flex_link">Edit Your Info</a></li>
-            <li class="header_li"><a ui-sref="cart" class="flex_link">Cart</a></li>
-            <li class="header_li" ng-click="main.logout()">Logout</li>
-          </ul>
-          <form ng-submit="main.geocodeAddress()" class="flexy-nav__form">
-            <input type="text" class="flexy-nav__search" ng-model="main.searchString" googleplace/>
+        <nav ng-if="main.user" class="horizontal-bar">
+          <div class="icon-header">
+            <a ui-sref="welcome">C-2-Go</a>
+          </div>
+            <div class="icon-header">
+              <a ui-sref="update">Account</a>
+            </div>
+            <div class="icon-header">
+              <a ui-sref="cart">Cart</a>
+            </div>
+            <div class="icon-header" ng-click="main.logout()"><span>Logout</span>
+            </div>
+          <form ng-submit="main.geocodeAddress()" class="search">
+            <input type="search" class="flexy-nav__search" ng-model="main.searchString" googleplace/>
           </form>
         </nav>
-        <nav ng-if="!main.user" class="bar">
+        <nav ng-if="!main.user" class="horizontal-bar">
           <div class="icon-header">
             <a ui-sref="welcome">C-2-Go</a>
           </div>
@@ -54,13 +60,13 @@
           </form>
         </nav>
       </header>
-      <nav ng-if="main.user" id="main-nav" class="main_section">
-        <nav class="flexy-nav">
-          <ul class="aside_ul">
-            <li class="aside_li"><a ui-sref="home" class="flex_link">Home</a></li>
-            <li class="aside_li"><a ui-sref="update" class="flex_link">Account</a></li>
-          </ul>
-        </nav>
+      <nav ng-if="main.user" id="main-nav" class="main_section vertical-bar">
+          <div class="icon-vertical-nav">
+            <a ui-sref="home">Home</a>
+          </div>
+          <div class="icon-vertical-nav">
+            <a ui-sref="update">Account</a>
+          </div>
       </nav>
       <main id="main-main" class="main_section">
         <main ui-view>
@@ -69,7 +75,7 @@
       </main>
 
       <footer id="main-footer" class="main-footer">
-        <nav class="bar">
+        <nav class="horizontal-bar">
           <div class="icon-footer"><a ui-sref="signup">Sign Up</a></div>
           <div class="icon-footer"><a ui-sref="login">Sign In</a></div>
         </nav>

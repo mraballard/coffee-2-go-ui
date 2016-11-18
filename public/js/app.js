@@ -201,7 +201,11 @@
       url: `${rootUrl}/users/${self.user.id}/stores`,
     })
     .then(function(response) {
-      self.stores = response.data.stores;
+      var duplicates = response.data.stores;
+      self.stores = duplicates.filter(function(el, i){
+        return duplicates.indexOf(el) == i;
+      })
+      console.log("stores");
       console.log(self.stores);
     })
     .catch(function(err) {
