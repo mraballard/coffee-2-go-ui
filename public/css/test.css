@@ -92,10 +92,25 @@ hr {
   box-shadow: 2px 2px 3px;
   cursor: pointer;
 }
-
 .cart-total {
   margin-left: 20px;
   font-size: 2em;
+}
+.checkout-button {
+  border-radius: 4px;
+  padding: 0px 10px 5px 10px;;
+  background-color: #BECCBC;
+  width: 100%;
+  text-align: center;
+}
+.checkout-button span {
+  text-align: center;
+  font-size: 0.8em;
+}
+.checkout-button:hover {
+  border: 2px solid white;
+  box-shadow: 2px 2px 3px;
+  cursor: pointer;
 }
 .card {
   width: 200px;

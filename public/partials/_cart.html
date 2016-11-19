@@ -3,10 +3,10 @@
 <div id="cart">
   <div class="cart-list">
     <div ng-if="main.cart.items.length > 0" class="cart-item">
-      <h3>Item</h3>
-      <h3>Price</h3>
-      <h3>Quantity</h3>
-      <h3>Subtotal</h3>
+      <h2>Item</h2>
+      <h2>Price</h2>
+      <h2>Quantity</h2>
+      <h2>Subtotal</h2>
     </div>
     <hr>
     <div ng-repeat="orderItem in main.cart.items">
@@ -31,8 +31,8 @@
     <h4>Total ({{main.cart.items.length}} {{main.cart.items.length === 1? "item" : "items"}}):</h4>
       <h4>{{main.cart.total | currency}}</h4>
 
-      <form ng-submit="main.checkout()" ng-show="main.cart.items.length && main.user">
-        <input type="submit" value="Place Order">
-      </form>
+      <div class="checkout-button" ng-click="main.checkout()" ng-show="main.cart.items.length && main.user">
+        <span>Place Order</span>
+      </div>
   </div>
 </div>
