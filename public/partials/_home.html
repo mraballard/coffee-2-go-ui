@@ -14,7 +14,8 @@
   <aside id="orders-list" class="main_section">
     <h3> RECENT ORDERS </h3>
     <div class="order-list" ng-repeat="order in main.orders">
-      <div class="order" ng-click="main.showOrder(order)">{{order.total | currency}} {{order.created_at | date:"MM/dd/yyyy 'at' h:mma"}}</div>
+      <div class="order" ng-click="main.showOrder(order)">{{order.total | currency}} {{order.created_at | date:"MM/dd/yyyy 'at' h:mma"}}
+      </div>
     </div>
   </aside>
 </div>

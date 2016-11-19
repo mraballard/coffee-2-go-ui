@@ -1,23 +1,26 @@
+
+
 <div class="form-container">
-  <form class="flex-form" ng-submit="main.signup(userPass)">
-      <div class="input-section">
-        <label for="first-name">First Name</label>
-        <input ng-model="userPass.firstName" type="text" id="first-name" placeholder="First name">
-      </div>
-      <div class="input-section">
-        <label for="last-name">Last Name</label>
-        <input ng-model="userPass.lastName" type="text" id="last-name" placeholder="Last name">
-      </div>
-      <div class="input-section">
-        <label for="username">Username</label>
-        <input ng-model="userPass.username" type="text" placeholder="username">
-      </div>
-      <div class="input-section">
-        <label for="password">Password</label>
-        <input ng-model="userPass.password" type="password" placeholder="password">
-      </div>
-      <div class="input-section">
-        <button type="submit">Submit</button>
-      </div>
+  <form class="flex-form" ng-submit="main.login(userPass)">
+    <div class="input-section">
+      <label for="first-name">First Name</label>
+      <input ng-model="userPass.firstName" type="text" id="first-name" placeholder="First name">
+    </div>
+    <div class="input-section">
+      <label for="last-name">Last Name</label>
+      <input ng-model="userPass.lastName" type="text" id="last-name" placeholder="Last name">
+    </div>
+    <div class="input-section">
+      <label for="username">Username</label>
+      <input ng-model="userPass.username" type="text" placeholder="username">
+    </div>
+    <div class="input-section">
+      <label for="password">Password</label>
+      <input ng-model="userPass.password" type="password" placeholder="password">
+    </div>
+    <div class="input-section">
+      <button type="submit">Submit</button>
+    </div>
+
   </form>
 </div>

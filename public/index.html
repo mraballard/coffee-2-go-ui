@@ -27,7 +27,7 @@
     <div id="flexbox">
       <header header id="main-header" class="main_section">
         <nav ng-if="main.user" class="horizontal-bar">
-          <div class="icon-header">
+          <div class="icon-header mobile-hide">
             <a ui-sref="welcome">C-2-Go</a>
           </div>
             <div class="icon-header">
@@ -52,9 +52,6 @@
           <div class="icon-header">
             <a ui-sref="login">Sign In</a>
           </div>
-          <div class="icon-header">
-            <a ui-sref="login">Username</a>
-          </div>
           <form ng-submit="main.geocodeAddress()" class="search">
             <input type="search" class="flexy-nav__search" ng-model="main.searchString" googleplace/>
           </form>
@@ -63,9 +60,6 @@
       <nav ng-if="main.user" id="main-nav" class="main_section vertical-bar">
           <div class="icon-vertical-nav">
             <a ui-sref="home">Home</a>
-          </div>
-          <div class="icon-vertical-nav">
-            <a ui-sref="update">Account</a>
           </div>
       </nav>
       <main id="main-main" class="main_section">

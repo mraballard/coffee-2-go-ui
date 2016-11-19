@@ -1,9 +1,10 @@
 <h3> ORDER Details: </h3>
 <div id="this-order">
   <h5>{{main.thisOrder.total | currency}}  {{main.thisOrder.createdAt | date:"MM/dd/yyyy 'at' h:mma"}}</h5>
-    <ul>
-      <li ng-repeat="item in main.thisOrder.breakdown">
-        {{item.details[0].quantity}} {{item.item.name}} @ {{item.item.price | currency}} -- Subtotal: {{item.details[0].subtotal | currency}}
-      </li>
-    </ul>
+    <div class="order-details" ng-repeat="item in main.thisOrder.breakdown">
+      <div class="order-item">
+        <h4>{{item.details[0].quantity}} {{item.item.name}} @ {{item.item.price | currency}} -- Subtotal: {{item.details[0].subtotal | currency}}
+        </h4>
+      </div>
+  </div>
 </div>

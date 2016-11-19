@@ -1,24 +1,18 @@
 @media (max-width: 900px) {
+  .mobile-hide {
+    display: none;
+  }
   #main-header {
     height: 100px;
     flex: 0 1 100%;
-    margin-bottom: 75px;
+    margin-bottom: 100px;
   }
   .icon-vertical-nav {
     display: flex;
     padding: 1px 5px 1px 5px;
     width: 20%;
     margin: 2px;
-
     justify-content: center;
-  }
-  #main-nav {
-    height: 50px;
-    flex: 0 1 100%;
-    display: flex;
-    flex-flow: row;
-    background: #92AF8F;
-    padding: 10px;
   }
   .horizontal-bar {
     flex-wrap: wrap;
@@ -28,7 +22,9 @@
     order: 0 !important;
     padding: 1px 5px 1px 5px;
     margin: 2px;
-    width: 48%;
+  }
+  .icon-footer{
+    margin-bottom: 2px;
   }
   .username {
     order: 1 !important;
@@ -88,18 +84,15 @@ p {
   font-size: 2em;
 }
 .card {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   background: #92AF8F;
   padding: 10px;
   margin: 5px;
 }
 .card:hover {
-  width: 200px;
-  height: 200px;
-  background: #92AF8F;
-  padding: 10px;
-  margin: 5px;
+  width: 152px;
+  height: 152px;
   box-shadow: 2px 2px 4px;
   cursor: pointer;
 }
@@ -142,21 +135,37 @@ p {
 #orders-list {
   display: flex;
   flex-direction: column;
-  flex: 0 1 30%;
+  flex: 0 1 50%;
   background: #92AF8F;
   padding-left: 10px;
   margin-bottom: 5px;
-  justify-content: space-around;
+  justify-content:flex-start;
 }
 .order-list {
-  align-self: flex-start;
-  width: 90%;
   display: flex;
+  align-self: flex-start;
+  width: 100%;
+  flex-flow: column;
   color: white;
-  background: #006341;
-  padding: 10px;
 }
 .order {
+  width: 100%;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  background: #006341;
+}
+.order-details{
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  width: 100%;
+}
+.order-item {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  margin-left: 20px;
+  padding: 10px 20px;
 }
 .horizontal-bar {
   display: flex;
@@ -184,7 +193,9 @@ p {
 }
 .icon-header {
   padding: 5px 35px 5px 35px;
+  margin: 2px;
   /*border: 3px solid black;*/
+  width: 200px;
   background-color: #006341;
 }
 .icon-vertical-nav {
@@ -194,7 +205,7 @@ p {
   margin-bottom: 5px;
 }
 .icon-footer {
-  width: 48%;
+  width: 300px;;
   padding: 5px 35px 5px 35px;
   /*border: 3px solid black;*/
   background-color: #006341;
@@ -214,11 +225,11 @@ p {
   font-size: 1.2em;
 }
 .form-container {
-  font-size: 2em;
-  height: 400px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  font-size: 2em;
+  height: 500px;
 }
 .flex-form {
   margin-top: 10px;
