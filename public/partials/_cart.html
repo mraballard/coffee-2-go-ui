@@ -2,27 +2,28 @@
 {{main.cart.items.length}} Items in cart
 <div id="cart">
   <div class="cart-list">
-    <div ng-if="main.cart.length > 0" class="cart-item">
-      <h4>Item</h4>
-      <h4>Price</h4>
-      <h4>Quantity</h4>
-      <h4>Subtotal</h4>
+    <div ng-if="main.cart.items.length > 0" class="cart-item">
+      <h3>Item</h3>
+      <h3>Price</h3>
+      <h3>Quantity</h3>
+      <h3>Subtotal</h3>
     </div>
     <hr>
     <div ng-repeat="orderItem in main.cart.items">
       <div class="cart-item">
         <h4>{{orderItem.product.name}}</h4>
         <h4>{{orderItem.product.price | currency}}</h4>
-        <h4>{{orderItem.quantity}}</h4>
+        <h4>
+          <form id="quantity-form" ng-submit="main.updateCart(orderItem, quantity)">
+            <input  ng-model="quantity" type="text" placeholder="{{orderItem.quantity}}">
+          </form>
+        </h4>
         <h4>{{orderItem.subtotal | currency}}</h4>
       </div>
-      <div class="cart-buttons">
-        <select name="quantity" ng-model="main.quantityAtCartIndex[$index]">
-          <option ng-repeat="num in [1,2,3,4,5,6,7,8,9,10]" value="{{num}}">{{num}}</option>
-        </select>
-        <input ng-click="main.updateCart(orderItem, main.quantityAtCartIndex[$index], $index)" type='button' value="Update Cart">
-        <input ng-click="main.removeFromCart(orderItem)"type="button" value="Delete">
+      <div class="cart-button" ng-click="main.removeFromCart(orderItem)">
+        <span>Delete</span>
       </div>
+
       <hr>
     </div>
   </div>

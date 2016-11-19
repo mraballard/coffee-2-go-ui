@@ -58,6 +58,9 @@
           });
           cart.items.splice(indexOfProductInCart, 1);
       cart.calculateTotal();
+      if (cart.items.length < 1) {
+        cart.emptyCart();
+      }
     }
 
     cart.calculateTotal = function() {

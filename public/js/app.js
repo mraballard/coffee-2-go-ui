@@ -68,6 +68,7 @@
     })
     .catch(function(err){
       console.error(err);
+      $state.reload();
     })
   }
 
@@ -175,9 +176,14 @@
     self.thisStore.menuItems[index].inCart = true;
   }
 
-  self.updateCart = function(item, quantity, index) {
-    $cart.update(item, quantity);
-    self.quantityAtCartIndex[index] = 0;
+  self.updateCart = function(item, quantity) {
+    if (quantity && quantity <= 10) {
+      console.log(quantity);
+      $cart.update(item, quantity);
+    } else {
+      $state.reload();
+    }
+
   }
 
   self.removeFromCart = function(item) {

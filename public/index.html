@@ -69,7 +69,7 @@
       </main>
 
       <footer id="main-footer" class="main-footer">
-        <nav class="horizontal-bar">
+        <nav ng-if="!main.user" class="horizontal-bar">
           <div class="icon-footer"><a ui-sref="signup">Sign Up</a></div>
           <div class="icon-footer"><a ui-sref="login">Sign In</a></div>
         </nav>

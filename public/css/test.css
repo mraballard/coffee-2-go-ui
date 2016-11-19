@@ -1,3 +1,4 @@
+
 @media (max-width: 900px) {
   .mobile-hide {
     display: none;
@@ -5,14 +6,15 @@
   #main-header {
     height: 100px;
     flex: 0 1 100%;
-    margin-bottom: 100px;
+    margin-bottom: 110px;
   }
   .icon-vertical-nav {
     display: flex;
     padding: 1px 5px 1px 5px;
-    width: 20%;
     margin: 2px;
     justify-content: center;
+    width: 50%;
+    background-color: #487F73;
   }
   .horizontal-bar {
     flex-wrap: wrap;
@@ -55,6 +57,10 @@ a, span {
 p {
   font-size: 0.8em;
 }
+hr {
+  margin-left: 0;
+  margin-right: 0;
+}
 #cart {
   display: flex;
   flex-flow: row nowrap;
@@ -72,13 +78,21 @@ p {
   justify-content: space-around;
   flex-basis: 75%;
 }
-.cart-buttons {
-  display: flex;
-  flex-flow: row;
-  align-items: center;
-  justify-content: center;
-  flex-basis: 25%;
+.cart-button {
+  border: 2px solid #6E7F7C;
+  border-radius: 4px;
+  font-size: 1em;
+  padding: 3px 10px;
+  background-color: #BECCBC;
+  width: 10%;
+  text-align: center;
 }
+.cart-button:hover {
+  border: 2px solid white;
+  box-shadow: 2px 2px 3px;
+  cursor: pointer;
+}
+
 .cart-total {
   margin-left: 20px;
   font-size: 2em;
@@ -222,7 +236,7 @@ p {
   padding: 10px;
   text-align: center;
 }
-.icon-header a {
+.icon-header {
   padding: 5px 35px 5px 35px;
   margin: 2px;
   /*border: 3px solid black;*/
@@ -230,14 +244,14 @@ p {
   background-color: #487F73;
   color: white;
 }
-.icon-vertical-nav a {
+.icon-vertical-nav {
   width: 100%;
-  padding: 5px 35px 5px 35px;
+  padding: 5px 15px;
   background-color: #487F73;
   margin-bottom: 5px;
   color: white;
 }
-.icon-footer a {
+.icon-footer {
   width: 300px;;
   padding: 5px 35px 5px 35px;
   /*border: 3px solid black;*/
