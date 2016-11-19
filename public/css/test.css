@@ -59,7 +59,34 @@ a, span {
 p {
   font-size: 0.8em;
 }
-
+#cart {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-left: 5px;
+}
+.cart-list {
+  display: flex;
+  flex-flow: column;
+  flex-basis: 75%;
+}
+.cart-item {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-basis: 75%;
+}
+.cart-buttons {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 25%;
+}
+.cart-total {
+  margin-left: 20px;
+  font-size: 2em;
+}
 .card {
   width: 200px;
   height: 200px;

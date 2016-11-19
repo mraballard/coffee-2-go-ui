@@ -1,34 +1,37 @@
 <h3> CART </h3>
 {{main.cart.items.length}} Items in cart
 <div id="cart">
-  <h4>Total ({{main.cart.items.length}} {{main.cart.items.length === 1? "item" : "items"}}):</h4>
-    <h4>{{main.cart.total | currency}}</h4>
-
-    <form ng-submit="main.checkout()" ng-show="main.cart.items.length && main.user">
-      <input type="submit" value="Place Order">
-    </form>
-
-  <div ng-repeat="orderItem in main.cart.items">
-    <h5>{{orderItem.product.name}}</h5>
-    <p>Price: {{orderItem.product.price | currency}}</p>
-    <p>Quantity: {{orderItem.quantity}}</p>
-    <p>Subtotal: {{orderItem.subtotal | currency}}</p>
-    <div ng-if="main.user">
-      <form ng-submit="main.updateCart(orderItem, main.quantityAtCartIndex[$index], $index)">
-        <label for="quantity">Quantity</label>
+  <div class="cart-list">
+    <div class="cart-item">
+      <h4>Item</h4>
+      <h4>Price</h4>
+      <h4>Quantity</h4>
+      <h4>Subtotal</h4>
+    </div>
+    <hr>
+    <div ng-repeat="orderItem in main.cart.items">
+      <div class="cart-item">
+        <h4>{{orderItem.product.name}}</h4>
+        <h4>{{orderItem.product.price | currency}}</h4>
+        <h4>{{orderItem.quantity}}</h4>
+        <h4>{{orderItem.subtotal | currency}}</h4>
+      </div>
+      <div class="cart-buttons">
         <select name="quantity" ng-model="main.quantityAtCartIndex[$index]">
           <option ng-repeat="num in [1,2,3,4,5,6,7,8,9,10]" value="{{num}}">{{num}}</option>
         </select>
-        <input type='submit' value="Update Cart">
-      </form>
-      <form ng-submit="main.removeFromCart(orderItem)">
-        <input type="submit" value="Delete from cart">
-      </form>
+        <input ng-click="main.updateCart(orderItem, main.quantityAtCartIndex[$index], $index)" type='button' value="Update Cart">
+        <input ng-click="main.removeFromCart(orderItem)"type="button" value="Delete">
+      </div>
+      <hr>
     </div>
   </div>
+  <div class="cart-total">
+    <h4>Total ({{main.cart.items.length}} {{main.cart.items.length === 1? "item" : "items"}}):</h4>
+      <h4>{{main.cart.total | currency}}</h4>
 
-
-  <form ng-submit="main.checkout()" ng-show="main.cart.items.length && main.user">
-    <input type="submit" value="Place Order">
-  </form>
+      <form ng-submit="main.checkout()" ng-show="main.cart.items.length && main.user">
+        <input type="submit" value="Place Order">
+      </form>
+  </div>
 </div>
