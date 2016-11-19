@@ -98,7 +98,6 @@
     self.thisOrder = null;
     localStorage.removeItem('token');
     localStorage.removeItem('user_id');
-    $state.go('welcome');
   }
 
   // ======================================================== //
@@ -128,7 +127,6 @@
   self.saveStore = function(store) {
     $http({ // ADDS STORE TO DATABASE
       method: 'POST',
-      headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
       url: `${rootUrl}/stores`,
       data: {
         name: store.title,
@@ -145,6 +143,7 @@
       }
     })
     .then(function(store){
+      console.log(store);
       self.showMenu(store);
     })
     .catch(function(err){
@@ -164,8 +163,16 @@
     })
   }
 
-  self.addToCart = function(item) {
+  self.checkIfItemIsInCart = function(item) {
+    itemIds = $cart.getProducts();
+    return itemIds.findIndex(function(el) {
+      return el === item.id;
+    });
+  }
+
+  self.addToCart = function(item, index) {
     $cart.add(item, 1, self.thisStore);
+    self.thisStore.menuItems[index].inCart = true;
   }
 
   self.updateCart = function(item, quantity, index) {
@@ -313,8 +320,8 @@
          })
     }
 
-   self.geocodeAddress = function(address) {
-     self.geocoder.geocode({'address': address}, function(results, status) {
+   self.geocodeAddress = function() {
+     self.geocoder.geocode({'address': self.searchString}, function(results, status) {
        if (status === google.maps.GeocoderStatus.OK) {
          self.center = results[0].geometry.location;
          self.searchAndMark();

@@ -36,9 +36,9 @@
             <div class="icon-header">
               <a ui-sref="cart">Cart</a>
             </div>
-            <div class="icon-header" ng-click="main.logout()"><span>Logout</span>
+            <div class="icon-header" ng-click="main.logout()"><a ui-sref="welcome">Logout</a>
             </div>
-          <form ng-submit="main.geocodeAddress(main.searchString)" class="search">
+          <form ng-submit="main.geocodeAddress()" class="search">
             <input type="search" class="flexy-nav__search" ng-model="main.searchString" googleplace/>
           </form>
         </nav>

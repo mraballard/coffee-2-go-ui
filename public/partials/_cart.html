@@ -2,7 +2,7 @@
 {{main.cart.items.length}} Items in cart
 <div id="cart">
   <div class="cart-list">
-    <div class="cart-item">
+    <div ng-if="main.cart.length > 0" class="cart-item">
       <h4>Item</h4>
       <h4>Price</h4>
       <h4>Quantity</h4>

@@ -4,9 +4,12 @@
 <div id="menu-page">
   <div class="card-list">
     <div ng-repeat="item in main.thisStore.menuItems">
-      <div class="menu-item" ng-click="main.addToCart(item)">
-        <h3>{{item.name}}:</h3> <p>{{item.description}}</p> <h4>{{item.price | currency}}</h4>
-        <h5 class="add-to-cart" ng-if="main.user">Add to cart</h5>
+      <div class="menu-item">
+        <h3>{{item.name}}:</h3>
+        <p>{{item.description}}</p>
+        <h4>{{item.price | currency}}</h4>
+        <h5 ng-click="main.addToCart(item, $index)" ng-hide="item.inCart" class="add-to-cart" ng-if="main.user">Add to cart</h5>
+        <h5 ng-show="item.inCart" class="added-to-cart" ng-if="main.user">Item in Cart!</h5>
       </div>
     </div>
   </div>
