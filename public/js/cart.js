@@ -18,6 +18,7 @@
     cart.emptyCart = function(){
       cart.items = [];
       cart.total = 0;
+      cart.currentStore = null;
     }
     cart.add = function(item, quantity, store) {
       if (!cart.currentStore || cart.currentStore === store){

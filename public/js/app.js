@@ -107,9 +107,53 @@
 
   self.cart = $cart;
   self.quantityAtCartIndex = [];
+
+  self.getStore = function(store) {
+    console.log("This is the store: ");
+    console.log(store);
+    $http({
+      method: 'GET',
+      headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
+      url: `${rootUrl}/stores/${store.id}`,
+    })
+    .then(function(response) {
+      console.log(response.data);
+      debugger;
+    })
+    .catch(function(err) {
+      console.log(err);
+    })
+  }
+
+  self.saveStore = function(store) {
+    $http({ // ADDS STORE TO DATABASE
+      method: 'POST',
+      headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
+      url: `${rootUrl}/stores`,
+      data: {
+        name: store.title,
+        address: store.vicinity,
+        lat: store.position.lat(),
+        lng: store.position.lng()
+      }
+    })
+    .then(function(response) {
+      if (response.data.status == 202){
+        return response.data.store[0];
+      } else {
+        return response.data.store;
+      }
+    })
+    .then(function(store){
+      self.showMenu(store);
+    })
+    .catch(function(err){
+      console.log(error);
+    })
+  }
+
   self.showMenu = function(store) {
     self.thisStore = store;
-
     $http.get(`${rootUrl}/items`)
     .then(function(response) {
       self.thisStore.menuItems = response.data.items;
@@ -134,39 +178,18 @@
   }
 
   self.checkout = function() {
-    $http({ // ADDS STORE TO DATABASE
+    var items = $cart.getProducts();
+    console.log($cart.items);
+    $http({
       method: 'POST',
       headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
-      url: `${rootUrl}/stores`,
+      url: `${rootUrl}/users/${self.user.id}/orders`,
       data: {
-        name: self.thisStore.title,
-        address: self.thisStore.vicinity,
-        lat: self.thisStore.position.lat(),
-        lng: self.thisStore.position.lng()
+        total: $cart.total,
+        user_id: self.user.id,
+        store_id: self.thisStore.id,
+        items: $cart.items
       }
-    })
-    .then(function(response) {
-      // Returns storeId for Order Post route
-      if (response.data.status == 202){
-        return response.data.store[0].id;
-      } else {
-        return response.data.store.id;
-      }
-    })
-    .then(function(storeId) {
-      var items = $cart.getProducts();
-      console.log($cart.items);
-      return $http({
-        method: 'POST',
-        headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
-        url: `${rootUrl}/users/${self.user.id}/orders`,
-        data: {
-          total: $cart.total,
-          user_id: self.user.id,
-          store_id: storeId,
-          items: $cart.items
-        }
-      })
     })
     .then(function(response){
       $cart.emptyCart();
