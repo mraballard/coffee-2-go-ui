@@ -339,9 +339,15 @@ hr {
 }
 .place {
   display: flex;
+  width: 100%;
   color: white;
-  background: #6E7F7C;
+  border: 2px solid #283B38;
+  border-radius: 4px;
   padding: 10px;
+}
+.place:hover {
+  box-shadow: 2px 2px 2px #283B38;
+  cursor: pointer;
 }
 .map-div {
   flex-basis: 80%;
