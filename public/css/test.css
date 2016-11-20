@@ -439,9 +439,8 @@ hr {
 
 #main-footer {
   order: 5;
-  height: 600px;
   flex: 0 1 100%;
-  background: #9d6449;
+  background: white;
 }
 
 #main-image {
