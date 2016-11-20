@@ -278,16 +278,16 @@
     self.geocoder = new google.maps.Geocoder();
     self.markers = [];
 
-    // self.getGoogleMapApiKey = function() {
-    //   $http.get('/google-api-key')
-    //   .then(function(response) {
-    //     self.MapApiKey = response.data.key;
-    //     self.googleMapsUrl = `https://maps.googleapis.com/maps/api/js?&key=${self.MapApiKey}&libraries=places`;
-    //   })
-    //   .catch(function(err) {
-    //     console.log(err);
-    //   })
-    // }
+    self.getGoogleMapApiKey = function() {
+      $http.get('${rootUrl}/users/google-api-key')
+      .then(function(response) {
+        self.MapApiKey = response.data.key;
+        self.googleMapsUrl = `https://maps.googleapis.com/maps/api/js?key=${self.MapApiKey}`;
+      })
+      .catch(function(err) {
+        console.log(err);
+      })
+    }
 
    self.searchAndMark = function() {
      self.markers = [];
