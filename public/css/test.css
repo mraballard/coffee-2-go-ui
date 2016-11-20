@@ -40,7 +40,10 @@
 }
 
 body {
-  background-color: #6E7F7C;
+  /*background-color: #FFE2CB;*/
+  background-image: url('../img/mugs.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
   margin: 0;
@@ -52,7 +55,7 @@ body {
 a, span {
   text-decoration: none;
   color: black;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 p {
   font-size: 0.8em;
@@ -115,37 +118,49 @@ hr {
 .card {
   width: 200px;
   height: 200px;
-  background: #BECCBC;
+  background: rgba(127, 94, 68, 0.9);;
   padding: 10px;
   margin: 5px;
+  color: white;
+  border-radius: 5px;
 }
 .card h4 {
-  font-size: 1.2em;
+  margin-top: -5px;
+  font-size: 2.3em;
+  text-align: center;
+  letter-spacing: 2px;
+  font-family: 'Tangerine', cursive;
+  margin-bottom: -10px;
 }
 .card h6 {
-  font-size: 1em;
+  font-size: 0.8em;
+  text-align: center;
 }
 .card:hover {
-  box-shadow: 2px 2px 4px;
+  box-shadow: 0px 0px 20px 2px;
   cursor: pointer;
 }
 .menu-item {
+  color: white;
   display: block;
-  width: 300px;
-  height: 300px;
-  background: #BECCBC;
+  width: 260px;
+  height: 260px;
+  background: rgba(127, 94, 68, 0.9);
   padding: 10px;
   margin: 5px;
   position: relative;
 }
 .menu-item h3 {
-  font-size: 1.6em;
+  font-family: 'Tangerine', cursive;
+  font-size: 2em;
+  text-align: center;
 }
 .menu-item h4 {
-  font-size: 1.2em;
+  text-align: center;
+  font-size: 1em;
 }
 .menu-item p {
-  font-size: 1em;
+  font-size: 0.7em;
 }
 
 #recent-stores-header {
@@ -156,24 +171,22 @@ hr {
 }
 .add-to-cart {
   text-align: center;
-  padding: 5px 10px 5px 10px;
-  border: 1px solid black;
+  padding: 5px 15px 5px 15px;
+  border: 2px solid black;
   position: absolute;
   bottom: 0;
 }
 .add-to-cart:hover{
   text-align: center;
-  padding: 5px 10px 5px 10px;
-  border: 1px solid black;
-  box-shadow: 1px 1px 2px;
+  box-shadow: 0px 0px 10px 2px;
   cursor: pointer;
 }
 .added-to-cart {
   text-align: center;
   padding: 5px 10px 5px 10px;
-  border: 2px solid green;
+  border: 2px solid #25FAC1;
   position: absolute;
-  color: green;
+  color: #25FAC1;
   bottom: 0;
 }
 .card-list {
@@ -186,28 +199,32 @@ hr {
 #orders-list {
   display: flex;
   flex-direction: column;
-  flex: 0 1 50%;
-  background: #6E7F7C;
+  flex: 0 1 40%;
+  background: white;
   padding-left: 10px;
   margin-bottom: 5px;
   justify-content:flex-start;
+}
+#orders-list h3{
+  text-align: center;
 }
 .order-list {
   display: flex;
   align-self: flex-start;
   width: 100%;
   flex-flow: column;
-  color: #DCFFF7;
 }
 .order {
   width: 100%;
   padding: 5px 10px;
   margin-bottom: 5px;
-  background: #6E7F7C;
+  /*background: #6E7F7C;*/
+  color: rgba(127, 94, 68);
+
 }
 .order:hover {
-  background: #6E7F7C;
-  box-shadow: 2px 2px 5px;
+  color: #25FAC1;
+  /*box-shadow: 0px 0px 10px 2px;*/
   cursor: pointer;
 }
 #order-details-page {
@@ -233,7 +250,7 @@ hr {
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  background: #283B38;
+  background: white;
   padding: 10px;
   text-align: center;
 }
@@ -247,31 +264,52 @@ hr {
   align-items: center;
   justify-content: flex-start;
   flex: 0 1 10%;
-  background: #283B38;
+  background: #9d6449;
   padding: 10px;
   text-align: center;
 }
 .icon-header {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
   padding: 5px 35px 5px 35px;
   margin: 2px;
-  /*border: 3px solid black;*/
+  /*border: 1px solid black;*/
+  border-radius: 7px;
   width: 200px;
-  background-color: #487F73;
+  background-color: #25FAC1;
   color: white;
 }
+.icon-header:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 2px #283B38;
+}
 .icon-vertical-nav {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
   width: 100%;
+  border-radius: 7px;
   padding: 5px 15px;
-  background-color: #487F73;
+  background-color: #25FAC1;
   margin-bottom: 5px;
   color: white;
 }
+.icon-vertical-nav:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 2px #283B38;
+}
 .icon-footer {
-  width: 300px;;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  border-radius: 7px;
+  width: 300px;
   padding: 5px 35px 5px 35px;
   /*border: 3px solid black;*/
-  background-color: #487F73;
+  background-color: #25FAC1;
   color: white;
+}
+.icon-footer:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 2px #283B38;
 }
 .search {
   width: 300px;
@@ -389,8 +427,8 @@ hr {
 
 #main-main {
   order: 3;
-  min-height: 600px;
-  min-width: 300px;
+  /*min-height: 600px;
+  min-width: 300px;*/
   flex: 1;
 }
 
@@ -403,7 +441,7 @@ hr {
   order: 5;
   height: 600px;
   flex: 0 1 100%;
-  background: #283B38;
+  background: #9d6449;
 }
 
 #main-image {
