@@ -427,8 +427,8 @@ hr {
 
 #main-main {
   order: 3;
-  /*min-height: 600px;
-  min-width: 300px;*/
+  min-height: 600px;
+  min-width: 300px;
   flex: 1;
 }
 
