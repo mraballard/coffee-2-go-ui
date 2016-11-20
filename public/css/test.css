@@ -43,7 +43,7 @@ body {
   /*background-color: #FFE2CB;*/
   background-image: url('../img/mugs.jpg');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
   margin: 0;
@@ -277,7 +277,6 @@ hr {
   border-radius: 7px;
   width: 200px;
   background-color: #25FAC1;
-  color: white;
 }
 .icon-header:hover {
   cursor: pointer;
@@ -312,6 +311,7 @@ hr {
   box-shadow: 0px 0px 10px 2px #283B38;
 }
 .search {
+
   width: 300px;
 }
 .search input {
@@ -336,35 +336,36 @@ hr {
   margin-top: 10px;
   display: flex;
   flex-flow: column;
-  padding: 10px 50px 80px 50px;
-  background: #283B38;
+  padding: 50px;
+  background: rgba(255, 255, 255, 0.5);;
 }
-.input-section input {
+.input-section {
   display: flex;
   flex-flow: column;
+  padding: 10px;
 }
 .input-section input {
-  display: block;
-  margin: 0;
-  padding: 0 4px;
-  width: 100%;
+  margin-top: 2px;
+  padding: 5 5px;
   height: 35px;
-  color: black;
-  background-color: #fff;
-  border: solid 2px #e7e7e7;
-  font-size: 0.8em;
+  font-size: 0.6em;
 }
 .input-section button {
   display: block;
   margin-top: 10px;
   width: 100%;
-  background-color: #487F73;
-  border: solid 2px #e7e7e7;
+  background-color: #25FAC1;
+  border-radius: 5px;
   font-size: 0.8em;
-  color: #DCFFF7;
+  color: black;
   letter-spacing: 2px;
 }
+.input-section button:hover {
+  box-shadow: 0px 0px 10px 2px white;
+}
 #flexbox {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-flow: row wrap;
 }
@@ -375,8 +376,8 @@ hr {
 .list-box {
   flex-basis: 20%;
   min-width: 100px;
-  height: 600px;
-  /*background: #6E7F7C;*/
+  border-radius: 10px 0px 0px 10px;
+  background: rgba(255, 255, 255, 0.4);
   display: flex;
   flex-flow: column;
   justify-content: space-around;
@@ -387,19 +388,20 @@ hr {
   width: 90%;
   display: flex;
   color: white;
-  /*background: #6E7F7C;*/
   padding: 10px;
 }
 .place {
-  display: flex;
+  font-family: 'Roboto Condensed', sans-serif;
+  letter-spacing: 2px;
   width: 100%;
-  color: white;
+  color: black;
   border: 2px solid #283B38;
   border-radius: 4px;
   padding: 10px;
+  background-color: #25FAC1;
 }
 .place:hover {
-  box-shadow: 2px 2px 2px #283B38;
+  box-shadow: 0px 0px 10px 2px white;
   cursor: pointer;
 }
 .map-div {
@@ -414,8 +416,8 @@ hr {
 .main_section {
   /*background: #CCC;*/
   /*border-radius: 7px;*/
-  /*margin: 5px;*/
-  /*padding: 5px;*/
+  margin: 5px;
+  padding: 5px;
 }
 
 #main-header {
