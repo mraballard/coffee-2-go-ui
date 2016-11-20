@@ -264,7 +264,7 @@ hr {
   align-items: center;
   justify-content: flex-start;
   flex: 0 1 10%;
-  background: #9d6449;
+  /*background: #9d6449;*/
   padding: 10px;
   text-align: center;
 }
