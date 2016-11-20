@@ -7,7 +7,7 @@
   mainController.$inject = ['$scope', '$http', '$state', 'NgMap', '$cart'];
 
   function mainController($scope, $http, $state, NgMap, $cart) {
-    var rootUrl = 'http://localhost:3000';
+    var rootUrl = 'https://coffee-2-go-api.herokuapp.com/';
     var self = this;
 // ======================================================== //
                // USER CONTROLLER //
