@@ -9,6 +9,7 @@
   function mainController($scope, $http, $state, NgMap, $cart) {
     var rootUrl = 'https://coffee-2-go-api.herokuapp.com/';
     var self = this;
+
 // ======================================================== //
                // USER CONTROLLER //
 // ======================================================== //
@@ -270,13 +271,23 @@
                 // GOOGLE PLACES //
 // ======================================================== //
     $scope.gPlace;
-    self.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?";
     self.searchString = "";
     self.center = new google.maps.LatLng(-33.4023375, -70.59443920000001);
     // self.map = NgMap.getMap('map');
     self.infowindow = new google.maps.InfoWindow();
     self.geocoder = new google.maps.Geocoder();
     self.markers = [];
+
+    // self.getGoogleMapApiKey = function() {
+    //   $http.get('/google-api-key')
+    //   .then(function(response) {
+    //     self.MapApiKey = response.data.key;
+    //     self.googleMapsUrl = `https://maps.googleapis.com/maps/api/js?&key=${self.MapApiKey}&libraries=places`;
+    //   })
+    //   .catch(function(err) {
+    //     console.log(err);
+    //   })
+    // }
 
    self.searchAndMark = function() {
      self.markers = [];
@@ -339,8 +350,9 @@
 
 
 
-
+  //  self.getGoogleMapApiKey();
    self.getUserFromLocalStorage();
+
   } // Close mainController function
 
 })()
