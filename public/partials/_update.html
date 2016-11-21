@@ -4,19 +4,19 @@
   <form class="flex-form" ng-submit="main.update(userPass)">
     <div class="input-section">
       <label for="first-name">First Name</label>
-      <input ng-model="userPass.firstName" type="text" id="first-name" placeholder="{{self.user.firstname}}">
+      <input ng-model="userPass.firstName" type="text" id="first-name" placeholder="{{main.user.firstname}}">
     </div>
     <div class="input-section">
       <label for="last-name">Last Name</label>
-      <input ng-model="userPass.lastName" type="text" id="last-name" placeholder="{{self.user.lastname}}">
+      <input ng-model="userPass.lastName" type="text" id="last-name" placeholder="{{main.user.lastname}}">
     </div>
     <div class="input-section">
       <label for="username">Username</label>
-      <input ng-model="userPass.username" type="text" placeholder="{{self.user.username}}">
+      <input ng-model="userPass.username" type="text" placeholder="{{main.user.username}}">
     </div>
     <div class="input-section">
       <label for="password">Password</label>
-      <input ng-model="userPass.password" type="password" placeholder="password">
+      <input ng-model="userPass.password" type="password" placeholder="Enter new password">
     </div>
     <div class="input-section">
       <button type="submit">Submit</button>
