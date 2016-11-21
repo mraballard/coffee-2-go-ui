@@ -1,9 +1,10 @@
 <div id="order-details-page">
-  <h2> ORDER Details</h2>
+  <h2 class="green-glow-h2"> ORDER Details</h2>
   <div id="this-order">
     <div class="order-card">
-      <h3 class="order-details-h3">{{main.thisOrder.created_at | date:"MM/dd/yy 'at' h:mma"}}</h3>
-      <h4 class="order-details-h4 class="order-details-h34>Total: {{main.thisOrder.total | currency}}</h4>
+      <h3 class="order-details-h3">{{main.thisOrder.store.name}}</h3>
+      <h4 class="order-details-h4">{{main.thisOrder.order.created_at | date:"MM/dd/yy 'at' h:mma"}}</h4>
+      <h4 class="order-details-h4 class="order-details-h34>Total: {{main.thisOrder.order.total | currency}}</h4>
       <div class="order-details" ng-repeat="item in main.thisOrder.breakdown">
         <div class="order-item">
           <li class="order-details-h4">{{item.details[0].quantity}} {{item.item.name}} @ {{item.item.price | currency}}

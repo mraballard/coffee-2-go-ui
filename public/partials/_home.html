@@ -6,7 +6,7 @@
   <main class="card-list">
     <div ng-repeat="store in main.stores">
       <div class="card" ng-click="main.showMenu(store)">
-        <h3>{{store.name}}</h3>
+        <h3 id="store-card-title">{{store.name}}</h3>
         <h5 class="card-address">{{store.address}}</h5>
       </div>
     </div>

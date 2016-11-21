@@ -95,6 +95,7 @@
   }
 
   self.logout = function() {
+    $state.go('welcome');
     self.user = null;
     self.orders = [];
     self.thisOrder = null;
@@ -256,7 +257,7 @@
     $http({
       method: 'GET',
       headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
-      url: `${rootUrl}/users/${self.user.id}/orders/${self.thisOrder.id}`,
+      url: `${rootUrl}/users/${self.user.id}/orders/${self.thisOrder.order.id}`,
     })
     .then(function(response) {
       self.thisOrder.breakdown = response.data.items;
