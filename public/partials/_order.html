@@ -1,13 +1,15 @@
 <div id="order-details-page">
-  <h3> ORDER Details: </h3>
+  <h2> ORDER Details</h2>
   <div id="this-order">
-    <h5>{{main.thisOrder.created_at | date:"MM/dd/yyyy 'at' h:mma"}}</h5>
-    <h5>{{main.thisOrder.total | currency}}</h5>
+    <div class="order-card">
+      <h3 class="order-details-h3">{{main.thisOrder.created_at | date:"MM/dd/yy 'at' h:mma"}}</h3>
+      <h4 class="order-details-h4 class="order-details-h34>Total: {{main.thisOrder.total | currency}}</h4>
       <div class="order-details" ng-repeat="item in main.thisOrder.breakdown">
         <div class="order-item">
-          <h4>{{item.details[0].quantity}} {{item.item.name}} @ {{item.item.price | currency}} -- Subtotal: {{item.details[0].subtotal | currency}}
-          </h4>
+          <li class="order-details-h4">{{item.details[0].quantity}} {{item.item.name}} @ {{item.item.price | currency}}
+          </li>
         </div>
+      </div>
     </div>
   </div>
 </div>
