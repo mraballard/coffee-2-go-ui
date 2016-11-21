@@ -177,6 +177,16 @@ hr {
   padding: 10px;
   margin: 5px;
   position: relative;
+  border: 1px solid white;
+}
+.thumb {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  bottom: 22px;
+  right: 20px;
+  border: 1px solid white;
+  box-shadow: 0px 0px 3px 1px white;
 }
 h3 {
   font-family: 'Tangerine', cursive;
@@ -207,7 +217,7 @@ p {
   padding: 5px 15px 5px 15px;
   border: 2px solid black;
   position: absolute;
-  bottom: 0;
+  bottom: 0px;
 }
 .add-to-cart:hover{
   text-align: center;

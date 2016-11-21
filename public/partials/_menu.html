@@ -5,7 +5,8 @@
   <div class="card-list">
     <div ng-repeat="item in main.thisStore.menuItems">
       <div class="menu-item">
-        <h3>{{item.name}}:</h3>
+        <img class="thumb" src="/img/{{item.id}}.jpg" alt="" />
+        <h3>{{item.name}}</h3>
         <p>{{item.description}}</p>
         <h4>{{item.price | currency}}</h4>
         <h5 ng-click="main.addToCart(item, $index)" ng-hide="item.inCart" class="add-to-cart" ng-if="main.user">Add to cart</h5>

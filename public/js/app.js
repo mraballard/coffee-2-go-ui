@@ -158,6 +158,7 @@
     $http.get(`${rootUrl}/items`)
     .then(function(response) {
       self.thisStore.menuItems = response.data.items;
+      console.log(self.thisStore.menuItems);
       $state.go('store');
     })
     .catch(function(err) {
