@@ -68,8 +68,13 @@ hr {
   display: flex;
   flex-flow: row wrap;
   margin-left: 5px;
-  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  background: rgba(127, 94, 68, 0.5);
   padding: 20px 20px 50px 20px;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-shadow: 0px 0px 5px black;
+  color: #25FAC1;
+  letter-spacing: 2px;
 }
 .cart-list {
   display: flex;
@@ -82,17 +87,12 @@ hr {
   align-items: center;
   justify-content: space-around;
   flex-basis: 75%;
+  letter-spacing: 1px;
 }
 .cart-item h2 {
-  color: #25FAC1;
-  text-shadow: 0px 0px 2px black;
-  letter-spacing: 2px;
   font-size: 2em;
 }
 .cart-item h4 {
-  color: white;
-  text-shadow: 0px 0px 4px black;
-  letter-spacing: 2px;
   font-size: 1.5em;
 }
 .cart-button {
@@ -104,6 +104,7 @@ hr {
   background-color: #25FAC1;
   margin-bottom: 5px;
   text-align: center;
+  text-shadow: 0px 0px 1px black;
 }
 .cart-button:hover {
   box-shadow: 0px 0px 10px 2px white;
@@ -116,9 +117,6 @@ hr {
 }
 .cart-total-heading {
   font-size: 2em;
-  color: #25FAC1;
-  text-shadow: 0px 0px 2px black;
-  letter-spacing: 2px;
 }
 .checkout-button {
   font-family: 'Roboto Condensed', sans-serif;
@@ -129,6 +127,7 @@ hr {
   padding: 5px 15px;
   background-color: #25FAC1;
   margin-bottom: 5px;
+  text-shadow: 0px 0px 1px black;
 }
 
 .checkout-button:hover {
@@ -155,10 +154,10 @@ hr {
 }
 #store-card-title {
   font-family: 'Roboto Condensed', sans-serif;
+  text-shadow: 0px 0px 5px black;
   color: #25FAC1;
   font-size: 1.2em;
   letter-spacing: 2px;
-  text-shadow: 0px 0px 5px black;
 }
 .card:hover {
   box-shadow: 0px 0px 5px 2px;
