@@ -346,6 +346,7 @@ hr {
   padding: 10px;
   text-align: center;
 }
+
 .icon-header {
   font-family: 'Roboto Condensed', sans-serif;
   text-transform: uppercase;
@@ -409,13 +410,13 @@ hr {
   justify-content: center;
   align-items: center;
   font-size: 2em;
-  height: 500px;
+  /*height: 500px;*/
 }
 .flex-form {
   margin-top: 10px;
   display: flex;
   flex-flow: column;
-  padding: 50px;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.5);;
 }
 .input-section {
@@ -441,6 +442,10 @@ hr {
 }
 .input-section button:hover {
   box-shadow: 0px 0px 10px 2px white;
+}
+#delete-user {
+  background-color: #FF6830;
+  color: white;
 }
 #flexbox {
   display: -webkit-flex;

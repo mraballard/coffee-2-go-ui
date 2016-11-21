@@ -52,6 +52,7 @@
       $state.go('home');
     })
     .catch(function(err) {
+      $state.reload();
       console.error(err);
     });
   }
@@ -94,10 +95,27 @@
     });
   }
 
+  self.destroy = function() {
+    $http({
+      method: 'DELETE',
+      headers:   {'Authorization': `Bearer ${JSON.stringify(localStorage.getItem('token'))}`},
+      url: `${rootUrl}/users/${self.user.id}`
+    })
+    .then(function(response){
+      console.log(response);
+      self.logout();
+    })
+    .catch(function(err) {
+      console.log(err);
+    })
+  }
+
   self.logout = function() {
     $state.go('welcome');
     self.user = null;
     self.orders = [];
+    self.stores = [];
+    self.thisStore = null;
     self.thisOrder = null;
     localStorage.removeItem('token');
     localStorage.removeItem('user_id');
