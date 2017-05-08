@@ -489,7 +489,6 @@ hr {
 }
 .map-div {
   flex-basis: 80%;
-  background: yellow;
 }
 #map {
   height: 600px;
