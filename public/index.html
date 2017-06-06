@@ -7,6 +7,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Tangerine" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="css/flexbox.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <link href="css/font-awesome.min.css" type="text/css" rel="stylesheet"/>
     <link href="css/test.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="css/main.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
@@ -17,6 +19,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyA1fsaSZJDS0het6pN-W1MN2m5gxmiPhiM&libraries=places"></script>
 <!-- <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script> -->
+    <script src='js/jquery.min.js'></script>
+    <script src='js/bootstrap.min.js'></script>
     <script src='js/maps.js'></script>
     <script src='js/router.js'></script>
     <script src='js/cart.js'></script>
@@ -30,7 +34,10 @@
       <header header id="main-header" class="main_section">
         <nav ng-if="main.user" class="horizontal-bar">
             <div class="icon-header">
-              <a ui-sref="update">Account</a>
+              <a ui-sref="home">Home</a>
+            </div>
+            <div class="icon-header">
+              <a ui-sref="update">Profile</a>
             </div>
             <div class="icon-header">
               <a ui-sref="cart">Cart</a>
@@ -49,18 +56,13 @@
             <a ui-sref="signup">Sign Up</a>
           </div>
           <div class="icon-header">
-            <a ui-sref="login">Sign In</a>
+            <a ui-sref="login">Log In</a>
           </div>
           <form ng-submit="main.geocodeAddress()" class="search">
             <input type="search" class="flexy-nav__search" ng-model="main.searchString" googleplace/>
           </form>
         </nav>
       </header>
-      <nav ng-if="main.user" id="main-nav" class="main_section vertical-bar">
-          <div class="icon-vertical-nav">
-            <a ui-sref="home">Home</a>
-          </div>
-      </nav>
       <main id="main-main" class="main_section">
         <main ui-view>
 
@@ -68,10 +70,10 @@
       </main>
 
       <footer id="main-footer" class="main-footer">
-        <nav ng-if="!main.user" class="horizontal-bar">
+     <!--    <nav ng-if="!main.user" class="horizontal-bar">
           <div class="icon-footer"><a ui-sref="signup">Sign Up</a></div>
           <div class="icon-footer"><a ui-sref="login">Sign In</a></div>
-        </nav>
+        </nav> -->
       </footer>
     </div>
 

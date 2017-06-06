@@ -1,37 +1,38 @@
 
 <div ng-if="main.cart.items.length > 0" id="cart">
+  <div class="cart-total">
+    <h4 class="cart-total-heading">Total</h4>
+    <h5 class="cart-total-heading">{{main.cart.total | currency}}</h4>
+
+      <div class="checkout-button text-center" ng-click="main.checkout()" ng-show="main.cart.items.length && main.user">
+        Checkout
+      </div>
+  </div>
+  <hr>
   <div class="cart-list">
-    <div class="cart-item">
-      <h2>Item</h2>
-      <h2>Price</h2>
-      <h2>Quantity</h2>
-      <h2>Subtotal</h2>
-    </div>
-    <hr>
-    <div ng-repeat="orderItem in main.cart.items">
-      <div class="cart-item">
-        <h4>{{orderItem.product.name}}</h4>
-        <h4>{{orderItem.product.price | currency}}</h4>
-        <h4>
+    <table style="width:80%">
+      <tr>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+        <th>Remove</th>
+      </tr>
+      <tr ng-repeat="orderItem in main.cart.items">
+        <td>{{orderItem.product.name}}</td>
+        <td>{{orderItem.product.price | currency}}</td>
+        <td>
           <form id="quantity-form" ng-submit="main.updateCart(orderItem, quantity)">
             <input  ng-model="quantity" type="text" placeholder="{{orderItem.quantity}}">
           </form>
-        </h4>
-        <h4>{{orderItem.subtotal | currency}}</h4>
-      </div>
-      <div class="cart-button" ng-click="main.removeFromCart(orderItem)">
-        <span>Remove Item</span>
-      </div>
-    </div>
+        </td>
+        <td>{{orderItem.subtotal | currency}}</td>
+        <td class="" ng-click="main.removeFromCart(orderItem)"><i class="fa fa-times" aria-hidden="true"></i>
+          </td>
+      </tr>
+    </table>
   </div>
-  <div class="cart-total">
-    <h4 class="cart-total-heading">Total</h4>
-    <h4 class="cart-total-heading">{{main.cart.total | currency}}</h4>
 
-      <div class="checkout-button" ng-click="main.checkout()" ng-show="main.cart.items.length && main.user">
-        <span>Checkout</span>
-      </div>
-  </div>
 </div>
 <div ng-if="main.cart.items.length == 0">
   <h2 class="green-glow-h2 ">Cart is Empty!</h2>

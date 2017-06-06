@@ -5,8 +5,6 @@ var path    = require('path');
 app.use(express.static(path.join(__dirname,'public')));
 
 
-
-
 //Routing
 app.get('/', function(req, res){
   res.render('index')
