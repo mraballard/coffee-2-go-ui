@@ -1,22 +1,24 @@
 
-<h2 id="recent-stores-header">RECENT STORES</h2>
-
+<div id="recent-stores-header" class="green-glow-h2">
+  Recent Stores
+</div>
 <div id="home-page">
 
-  <main class="card-list">
+  <div class="card-list">
     <div ng-repeat="store in main.stores">
       <div class="card" ng-click="main.showMenu(store)">
         <h3 id="store-card-title">{{store.name}}</h3>
         <h5 class="card-address">{{store.address}}</h5>
       </div>
     </div>
-  </main>
+  </div>
 
-  <aside id="orders-list" class="main_section">
-    <h4 class="recent-orders-heading"> RECENT ORDERS </h4>
+  <div id="orders-list">
+    <h4 class="recent-orders-heading"> Recent Orders </h4>
+    <hr>
     <div class="order-list" ng-repeat="order in main.orders">
-      <div class="order" ng-click="main.showOrder(order)">- @{{order.store.name}} on {{order.order.created_at | date:"MM/dd"}}
+      <div class="order" ng-click="main.showOrder(order)">{{order.order.created_at | date: mediumDate}} @{{order.store.name}}
       </div>
     </div>
-  </aside>
+  </div>
 </div>

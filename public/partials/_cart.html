@@ -1,8 +1,8 @@
 
 <div ng-if="main.cart.items.length > 0" id="cart">
   <div class="cart-total">
-    <h4 class="cart-total-heading">Total</h4>
-    <h5 class="cart-total-heading">{{main.cart.total | currency}}</h4>
+    <h4 class="cart-total-header">Total</h4>
+    <h5 class="cart-total-header">{{main.cart.total | currency}}</h4>
 
       <div class="checkout-button text-center" ng-click="main.checkout()" ng-show="main.cart.items.length && main.user">
         Checkout
@@ -10,7 +10,7 @@
   </div>
   <hr>
   <div class="cart-list">
-    <table style="width:80%">
+    <table style="width:100%">
       <tr>
         <th>Item</th>
         <th>Price</th>

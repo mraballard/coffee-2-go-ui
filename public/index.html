@@ -33,40 +33,27 @@
     <div id="flexbox">
       <header header id="main-header" class="main_section">
         <nav ng-if="main.user" class="horizontal-bar">
-            <div class="icon-header">
-              <a ui-sref="home">Home</a>
-            </div>
-            <div class="icon-header">
-              <a ui-sref="update">Profile</a>
-            </div>
-            <div class="icon-header">
-              <a ui-sref="cart">Cart</a>
-            </div>
-            <div class="icon-header" ng-click="main.logout()"><a ui-sref="welcome">Logout</a>
-            </div>
+            <div class="icon-header" ui-sref="home">Home</div>
+            <div class="icon-header" ui-sref="update">Profile</div>
+            <div class="icon-header" ui-sref="cart">Cart</div>
+            <div class="icon-header" ng-click="main.logout()" ui-sref="welcome">Logout</div>
           <form ng-submit="main.geocodeAddress()" class="search">
             <input type="search" class="flexy-nav__search" ng-model="main.searchString" googleplace/>
           </form>
         </nav>
         <nav ng-if="!main.user" class="horizontal-bar">
-          <div class="icon-header">
-            <a ui-sref="welcome">C-2-Go</a>
-          </div>
-          <div class="icon-header">
-            <a ui-sref="signup">Sign Up</a>
-          </div>
-          <div class="icon-header">
-            <a ui-sref="login">Log In</a>
-          </div>
+          <div class="icon-header" ui-sref="welcome">C-2-Go</div>
+          <div class="icon-header" ui-sref="signup">Sign Up</div>
+          <div class="icon-header" ui-sref="login">Log In</div>
           <form ng-submit="main.geocodeAddress()" class="search">
             <input type="search" class="flexy-nav__search" ng-model="main.searchString" googleplace/>
           </form>
         </nav>
       </header>
-      <main id="main-main" class="main_section">
-        <main ui-view>
+      <main id="main-main" class="main_section" ui-view>
+        <!-- <main ui-view>
 
-        </main>
+        </main> -->
       </main>
 
       <footer id="main-footer" class="main-footer">
